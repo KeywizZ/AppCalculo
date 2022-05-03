@@ -12,7 +12,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { DashboardPage } from "./pages/DashboardPage/DashboardPage";
 import { HamburgerMenu } from "./shared/components/HamburgerMenu/HamburgerMenu";
 import { JwtContext } from "./shared/context/JwtContext";
-import { Activity } from "./components/ActivityList/Activity";
+import { ActivityPage } from "./pages/ActivityPage/ActivityPage";
 import { ActivityList } from "./components/ActivityList/ActivityList";
 
 function App() {
