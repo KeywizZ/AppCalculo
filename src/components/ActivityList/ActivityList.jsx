@@ -30,7 +30,7 @@ export const ActivityList = () => {
                     .map((activity) => {
                       return (
                         <div className="activity-card" key={JSON.stringify(activity)}>
-                          <Link to={`api/activities/${activity._id}`}>
+                          <Link to={`activities/${activity._id}`}>
                             <button>{activity.id}</button>
                           </Link>
                         </div>

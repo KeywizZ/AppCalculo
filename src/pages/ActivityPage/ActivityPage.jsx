@@ -1,8 +1,8 @@
 import React from "react";
-import ActivitySlider from "../../components/ActivitySlider/ActivitySlider";
+import {Activity} from "../../components/ActivityList/Activity"
 
 function ActivityPage() {
-  return <ActivitySlider />;
+  return <Activity />;
 }
 
 export default ActivityPage;

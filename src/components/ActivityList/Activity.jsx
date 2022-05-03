@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 export const Activity = (params) => {
-
-    //const { _id } = useParams();
-  return (
-    <div>Activity</div>
-  )
-}
+  console.log("INFO: in Activity");
+  //const { _id } = useParams();
+  return <div>Activity</div>;
+};
