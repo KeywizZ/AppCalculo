@@ -10,6 +10,7 @@ import { HomePage } from "./pages/HomePage/HomePage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { JwtContext } from "./shared/context/JwtContext";
+import { DashboardPage } from "./pages/DashboardPage/DashboardPage";
 
 function App() {
   const [jwt, setJwt] = useState(localStorage.getItem("token"));
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
           </Routes>
         </Router>
       </div>
