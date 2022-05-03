@@ -1,8 +1,8 @@
-import React from "react";
-import {Activity} from "../../components/ActivityList/Activity"
+import React from 'react'
 
-function ActivityPage() {
-  return <Activity />;
+export const ActivityPage = () => {
+  return (
+    <div>ActivityPage</div>
+  )
 }
 
-export default ActivityPage;
