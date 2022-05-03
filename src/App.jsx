@@ -27,7 +27,7 @@ function App() {
         <button>
           <GiHamburgerMenu />
         </button>
-        <HamburgerMenu />
+        {/* <HamburgerMenu /> */}
       </nav>
         <Router>
           <Routes>
