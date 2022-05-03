@@ -1,12 +1,18 @@
-import React from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import axios from "axios";
 
-export const RequireAuth = ({ children }) => {
-  let location = useLocation();
-
-  if (!localStorage.getItem("token")) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
-
-  return children;
+export const APIHeaders = {
+  Accept: "application/json",
+  "Content-Type": "application/json",
+  "Access-Control-Allow-Origin": "*",
+  Authorization: {
+    toString() {
+      return `Bearer ${localStorage.getItem("token")}`;
+    },
+  },
 };
+
+export const API = axios.create({
+  baseURL: process.env.REACT_APP_BACK_URL,
+  timeout: 6000,
+  headers: APIHeaders,
+});

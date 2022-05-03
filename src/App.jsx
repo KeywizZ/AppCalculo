@@ -7,14 +7,17 @@ import {
 } from "react-router-dom";
 import { useState } from "react";
 import { HomePage } from "./pages/HomePage/HomePage";
+import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { DashboardPage } from "./pages/DashboardPage/DashboardPage";
 import { HamburgerMenu } from "./shared/components/HamburgerMenu/HamburgerMenu";
+import { JwtContext } from "./shared/context/JwtContext";
 
 function App() {
-  /*   const [jwt, setJwt] = useState(localStorage.getItem("token")); */
+  const [jwt, setJwt] = useState(localStorage.getItem("token"));
 
   return (
+   <JwtContext.Provider value={{ jwt, setJwt }}>
     <div className="App">
       <nav className="Nav">
         <h1>AppCálculo</h1>
@@ -32,6 +35,7 @@ function App() {
         </Routes>
       </Router>
     </div>
+</JwtContext.Provider>
   );
 }
 
