@@ -1,12 +1,13 @@
 @import "./variables";
 
 .Nav {
-    background-color: $azulFondo;
+    
+    background-color: #614ACF;
     max-width: 100%;
     padding: 8px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     color: white;
 
     button {
