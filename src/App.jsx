@@ -8,8 +8,6 @@ import {
 import { useState } from "react";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { LoginPage } from "./pages/LoginPage/LoginPage";
-import { RegisterPage } from "./pages/RegisterPage/RegisterPage";
 import { JwtContext } from "./shared/context/JwtContext";
 
 function App() {
@@ -20,8 +18,7 @@ function App() {
       <div className="App">
         <Router>
           <Routes>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/" element={<HomePage />} />
           </Routes>
         </Router>
       </div>
