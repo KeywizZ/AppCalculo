@@ -33,9 +33,9 @@ function App() {
           <Routes>
             <Route path="/">
               <Route index element={<HomePage />} />
-              <Route path="/login" element={<LoginPage />} />
+              <Route path="/login" element={<LoginPage />} />git 
               <Route path="/dashboard" element={<DashboardPage />} />
-              <Route path="/activities/:_id" element={<Activity />} />
+              <Route path="dashboard/activities/:_id" element={<ActivityPage />} />
               <Route path="/activities" element={<ActivityList />} />
             </Route>
           </Routes>
