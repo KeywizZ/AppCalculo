@@ -1,8 +1,7 @@
-import React from 'react'
-import Loginform from '../../shared/components/LoginForm/LoginForm'
+import React from "react";
+import { LoginForm } from "../../components/LoginForm/LoginForm";
 
-export default function LoginPage() {
-  return (
-    <Loginform />
-  )
-}
+export const LoginPage = () => {
+  console.log("INFO: LoginPage component");
+  return <LoginForm />;
+};
