@@ -1,0 +1,29 @@
+@import "../../variables";
+
+.bienvenida {
+    font-size: 35px;
+}
+
+.login {
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    background-color: $buttonColor ;
+    color: $textInButton;
+/*     max-width: 40%; */
+    font-size: 20px;
+}
+
+.homepage {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
+    span {
+        max-width: 80%;
+        margin-top: 10px;
+        font-size: 15px;
+    }
+}

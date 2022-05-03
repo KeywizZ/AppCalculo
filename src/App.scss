@@ -1,0 +1,20 @@
+@import "./variables";
+
+.Nav {
+    background-color: $azulFondo;
+    max-width: 100%;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+
+    button {
+        color: white;
+        background-color: transparent;
+        border: none;
+        font-size: 28px;
+        display: flex;
+        align-items: center;
+    }
+  }
