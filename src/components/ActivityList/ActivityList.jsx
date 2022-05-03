@@ -29,9 +29,12 @@ export const ActivityList = () => {
                     .filter((activity) => activity.type.includes(item))
                     .map((activity) => {
                       return (
-                        <div className="activity-card" key={JSON.stringify(activity)}>
-                          <Link to={`activities/${activity._id}`}>
-                            <button>{activity.id}</button>
+                        <div
+                          className="activity-card"
+                          key={JSON.stringify(activity)}
+                        >
+                          <Link to={`activities/${activity._id}`} className="activity-anchor">
+                            <button className="activity-btn">{activity.id}</button>
                           </Link>
                         </div>
                       );

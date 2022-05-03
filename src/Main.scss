@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Radio+Canada&display=swap");
+@import "./pages/HomePage/HomePage";
+@import "./variables";
+@import "/src/shared/components/HamburgerMenu/HamburgerMenu";
+@import "./pages/DashboardPage/DashboardPage";
+
+
+
+
 
 * {
   font-family: "Radio Canada", sans-serif;
@@ -7,9 +15,7 @@
   margin: 0px;
 }
 
-@import "./pages/HomePage/HomePage";
-@import "./variables";
-@import "/src/shared/components/HamburgerMenu/HamburgerMenu";
+
 
 
 /* 

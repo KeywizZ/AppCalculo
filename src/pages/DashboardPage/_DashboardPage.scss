@@ -1,0 +1,25 @@
+.container-activities {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .activities-container-type {
+        display: flex;
+        flex-wrap: wrap;
+        width: auto;
+    }
+
+    .activity-card {
+        width: 50px;
+    }
+
+    .activity-anchor {
+        width: 50px;
+    }
+
+    .activity-btn {
+        width: 50px;
+    }
+
+
+}
