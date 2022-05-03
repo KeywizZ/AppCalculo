@@ -31,7 +31,7 @@ export const ActivityList = () => {
                       return (
                         <div className="activity-card" key={JSON.stringify(activity)}>
                           <Link to={`api/activities/${activity._id}`}>
-                            <button>{activity.name}</button>
+                            <button>{activity.id}</button>
                           </Link>
                         </div>
                       );
