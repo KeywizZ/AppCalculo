@@ -1,5 +1,6 @@
-import React from "react";
-import {NavLink} from "react-router-dom";
+import React, { Route } from "react";
+import { NavLink } from "react-router-dom";
+import { LoginPage } from "../LoginPage/LoginPage";
 
 export const HomePage = () => {
   return (
@@ -8,10 +9,7 @@ export const HomePage = () => {
       <NavLink to="/login">
         <button className="login">Iniciar Sesión</button>
       </NavLink>
-      <span>
-        ¿No tienes acceso? Pide a tu centro educativo que te de credenciales de
-        acceso
-      </span>
+      <span>¿No tienes acceso? Pide a tu centro educativo que te de credenciales de acceso</span>
     </div>
   );
 };

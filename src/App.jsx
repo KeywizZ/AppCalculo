@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { useState } from "react";
 import { HomePage } from "./pages/HomePage/HomePage";
+import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { JwtContext } from "./shared/context/JwtContext";
 
@@ -19,6 +20,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
           </Routes>
         </Router>
       </div>
