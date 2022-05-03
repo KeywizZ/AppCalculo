@@ -13,6 +13,7 @@ export const ActivitySlider = () => {
       });
     }, [url]);
 
+    
 
 
 
