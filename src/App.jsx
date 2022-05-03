@@ -21,21 +21,25 @@ function App() {
   return (
     <JwtContext.Provider value={{ jwt, setJwt }}>
       <div className="App">
-      <nav className="Nav">
-        <h1>AppCálculo</h1>
-        {/*         <HamburgerMenu pageWrapId={'page-wrap'} outerContainerId={'outer-container'} /> */}
-        <button>
-          <GiHamburgerMenu />
-        </button>
-        {/* <HamburgerMenu /> */}
-      </nav>
+        <nav className="Nav">
+          <h1>AppCálculo</h1>
+          {/*         <HamburgerMenu pageWrapId={'page-wrap'} outerContainerId={'outer-container'} /> */}
+          
+            <HamburgerMenu />
+          
+          
+        </nav>
         <Router>
           <Routes>
             <Route path="/">
               <Route index element={<HomePage />} />
-              <Route path="/login" element={<LoginPage />} />git 
+              <Route path="/login" element={<LoginPage />} />
+              git
               <Route path="/dashboard" element={<DashboardPage />} />
-              <Route path="dashboard/activities/:_id" element={<ActivityPage />} />
+              <Route
+                path="dashboard/activities/:_id"
+                element={<ActivityPage />}
+              />
               <Route path="/activities" element={<ActivityList />} />
             </Route>
           </Routes>
