@@ -17,25 +17,26 @@ function App() {
   const [jwt, setJwt] = useState(localStorage.getItem("token"));
 
   return (
-   <JwtContext.Provider value={{ jwt, setJwt }}>
-    <div className="App">
-      <nav className="Nav">
-        <h1>AppCálculo</h1>
-        {/*         <HamburgerMenu pageWrapId={'page-wrap'} outerContainerId={'outer-container'} /> */}
-        <button>
-          <GiHamburgerMenu />
-        </button>
-        <HamburgerMenu />
-      </nav>
-      <Router>
-        <Routes>
-          <Route path="/">
-            <Route index element={<HomePage />} />
-          </Route>
-        </Routes>
-      </Router>
-    </div>
-</JwtContext.Provider>
+    <JwtContext.Provider value={{ jwt, setJwt }}>
+      <div className="App">
+        <nav className="Nav">
+          <h1>AppCálculo</h1>
+          {/*         <HamburgerMenu pageWrapId={'page-wrap'} outerContainerId={'outer-container'} /> */}
+          <button>
+            <GiHamburgerMenu />
+          </button>
+          <HamburgerMenu />
+        </nav>
+        <Router>
+          <Routes>
+            <Route path="/">
+              <Route index element={<HomePage />} />
+            </Route>
+            <Route path="/activities/:_id" element={<Activity />} />
+          </Routes>
+        </Router>
+      </div>
+    </JwtContext.Provider>
   );
 }
 
