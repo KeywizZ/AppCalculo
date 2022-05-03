@@ -8,7 +8,6 @@ import {
 import { useState } from "react";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { ActivityList } from "./components/ActivityList/ActivityList";
 
 function App() {
   /*   const [jwt, setJwt] = useState(localStorage.getItem("token")); */
