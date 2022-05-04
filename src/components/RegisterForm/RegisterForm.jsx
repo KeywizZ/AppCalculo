@@ -11,13 +11,7 @@ export const RegisterForm = () => {
   //console.log("Form", jwt);
 
   const onSubmit = (formData, jwt) => {
-    API.post("users/register", formData, {
-      headers: {
-        authorization: `Bearer ${jwt}`,
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
+    API.post("users/register", formData) 
       .then((res) => {
         console.log(res);
         navigate("/dashboard");
