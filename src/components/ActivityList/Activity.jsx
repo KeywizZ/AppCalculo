@@ -42,7 +42,7 @@ export const Activity = (params) => {
       setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, inténtalo otra vez.`);
     }
     //NO SALE EL MENSAJE
-    alert(finalMessage);
+    alert('RESULTADO: ', finalMessage);
     navigate("/dashboard");
   };
 
