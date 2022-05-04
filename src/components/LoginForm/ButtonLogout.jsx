@@ -12,5 +12,5 @@ export const ButtonLogout = () => {
     navigate("/");
     window.location.reload();
   };
-  return <button onClick={logOut}>Log Out</button>;
+  return <button onClick={logOut}>LOG OUT</button>;
 };

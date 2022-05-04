@@ -5,7 +5,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { DashboardPage } from "./pages/DashboardPage/DashboardPage";
@@ -24,10 +24,10 @@ function App() {
     <JwtContext.Provider value={{ jwt, setJwt }}>
       <div className="App">
         <Router>
-            <nav className="Nav">
-              <h1>AppCálculo</h1>
-              <HamburgerMenu />
-            </nav>
+          <nav className="Nav">
+            <h1>AppCálculo</h1>
+            <HamburgerMenu />
+          </nav>
 
           <Routes>
             <Route path="/">
