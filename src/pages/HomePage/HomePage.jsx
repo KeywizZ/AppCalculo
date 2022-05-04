@@ -1,6 +1,6 @@
 import React, { useState }  from "react";
 import { NavLink } from "react-router-dom";
-import { JwtContext } from "../../shared/context/JwtContext";
+//import { JwtContext } from "../../shared/context/JwtContext";
 
 export const HomePage = () => {
   const [jwt] = useState(localStorage.getItem("token"));
