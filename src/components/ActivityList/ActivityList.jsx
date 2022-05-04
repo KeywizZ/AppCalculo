@@ -26,9 +26,11 @@ export const ActivityList = () => {
   const handleShow = id => setShowId(id);
 }
  */
+
   return (
     <>
       <div className="container-activities">
+        <h2>Lista de actividades</h2>
         {activities &&
           types.map((item) => {
             return (
