@@ -8,13 +8,13 @@ export const RegisterForm = () => {
   const [jwt] = useState(localStorage.getItem("token"));
   const { register, handleSubmit } = useForm();
   let navigate = useNavigate();
-  console.log("Form", jwt);
+  //console.log("Form", jwt);
 
   const onSubmit = (formData, jwt) => {
     API.post("users/register", formData, {
       headers: {
-        "authorization": jwt,
-        "Accept": "application/json",
+        authorization: `Bearer ${jwt}`,
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
     })
