@@ -15,7 +15,8 @@ export const Activity = (params) => {
   const [answer, setAnswer] = useState();
   let navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user.role === 'ADMIN' || 'TEACHER' ? 'is admin or teacher':'not admin or teacher');
+
+  console.log('1 carga user', user)
 
   console.log("INFO: loading questions from activity id: ", _id);
 
@@ -39,9 +40,12 @@ export const Activity = (params) => {
 
   const resolveActivity = () => {
     if (correctQuestions > 8) {
-      API.post(`/add-activity/${_id}`).then((res) => {
-        console.log('activity inserted');
-        navigate("/dashboard");
+      console.log('2', user.completedActivities)
+      user.completedActivities.push(_id);
+      console.log('3',user.completedActivities)
+      API.patch(`/add-activity/${user._id}`, user).catch(error => console.log(error)).then((res) => {
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        console.log('INFO: user in session storage updated')
       });
       setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, has aprobado.`);
     } else {
