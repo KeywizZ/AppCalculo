@@ -23,7 +23,7 @@ export const HomePage = () => {
       {jwt && (
         <div className="homepage">
           <h1 className="bienvenida">Bienvenido a AppCálculo {user.name}, eres un {user.role}</h1>
-          <NavLink to="/Dashboard">
+          <NavLink to="/dashboard">
             <button className="login">Dashboard</button>
           </NavLink>
         </div>

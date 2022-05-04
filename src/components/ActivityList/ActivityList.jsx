@@ -26,15 +26,17 @@ export const ActivityList = () => {
   const handleShow = id => setShowId(id);
 }
  */
+
   return (
     <>
       <div className="container-activities">
+        <h2>Lista de actividades</h2>
         {activities &&
           types.map((item) => {
             return (
               <>
                 <div key={JSON.stringify(item)} className="type-title">
-                  <button onClick={toggleActivities()}>{item}</button> 
+                  <button onClick={toggleActivities}>{item}</button> 
                 </div>
                 <div className={`activities-container-type ${showActivityList ? ` show${item}` : ` hide${item}`}`}>
                   {activities
