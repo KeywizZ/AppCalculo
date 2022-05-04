@@ -8,12 +8,12 @@ export const DashboardPage = () => {
   console.log(user.role);
   return (
     <div className="dashboard">
-      {user.role === "STUDENT" && <ActivityList />}
       {user.role === "ADMIN" && (
         <NavLink to="/register">
           <button className="login">Registrar un nuevo usuario</button>
         </NavLink>
       )}
+      {(user.role === "STUDENT" || "TEACHER" || "ADMIN") && <ActivityList />}
     </div>
   );
 };
