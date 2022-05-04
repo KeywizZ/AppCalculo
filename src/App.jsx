@@ -1,11 +1,11 @@
 import "./App.scss";
 import {
   BrowserRouter as Router,
-  NavLink,
+  
   Route,
   Routes,
 } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { DashboardPage } from "./pages/DashboardPage/DashboardPage";
