@@ -20,13 +20,6 @@ export const ActivityList = () => {
     setShowActivityList(!showActivityList);
   }
 
-/* const listIdFunct = () => {
-  const [showId, setShowId] = useState();
-
-  const handleShow = id => setShowId(id);
-}
- */
-
   return (
     <>
       <div className="container-activities">
