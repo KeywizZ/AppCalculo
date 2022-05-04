@@ -5,12 +5,11 @@ import { API } from "../../shared/services/api";
 import { JwtContext } from "../../shared/context/JwtContext";
 
 export const RegisterForm = () => {
-  const [jwt] = useState(localStorage.getItem("token"));
   const { register, handleSubmit } = useForm();
   let navigate = useNavigate();
   //console.log("Form", jwt);
 
-  const onSubmit = (formData, jwt) => {
+  const onSubmit = (formData) => {
     API.post("users/register", formData) 
       .then((res) => {
         console.log(res);
@@ -48,7 +47,7 @@ export const RegisterForm = () => {
       />
       <div className="">
         <label>Rol</label>
-        <select {...register("rol", { require: true })}>
+        <select {...register("role", { require: true })}>
           <option>ADMIN</option>
           <option>STUDENT</option>
           <option>GUARDIANS</option>

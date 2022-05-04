@@ -9,7 +9,8 @@ export const LoginForm = () => {
 
   const onSubmit = (formData) => {
     API.post("users/login", formData).then((res) => {
-      localStorage.setItem("token", res.data);
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
       navigate("/dashboard");
     });
     /*  console.log(formData); */
