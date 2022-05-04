@@ -1,13 +1,22 @@
 .dashboard {
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    gap: 10px;
 
     .container-activities {
         display: flex;
+        max-width: 100%;
+        margin-right: 20px;
+        margin-left: 20px;
         flex-direction: column;
-        width: 500px;
+        flex-wrap: wrap;
+/*      width: 500px;       */
+        align-items: center;
 
         .type-title {
             margin: 25px 0;
@@ -16,8 +25,9 @@
 
         .activities-container-type {
             display: flex;
+            border-radius: 6px;
             flex-wrap: wrap;
-            width: 100%;
+            max-width: 90%;
             justify-content: space-between;
             background-color: $azulFondo;
         }
@@ -40,5 +50,9 @@
             background-color: $buttonColor;
         }
 
+    }
+
+    .hideActivity {
+        display: none;
     }
 }

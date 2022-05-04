@@ -15,6 +15,17 @@ export const ActivityList = () => {
 
   const types = [...new Set(activities.map((item) => item.type))];
 
+  const [showActivityList, setShowActivityList] = useState(false);
+  function toggleActivities() {
+    setShowActivityList(!showActivityList);
+  }
+
+/* const listIdFunct = () => {
+  const [showId, setShowId] = useState();
+
+  const handleShow = id => setShowId(id);
+}
+ */
   return (
     <>
       <div className="container-activities">
@@ -23,9 +34,9 @@ export const ActivityList = () => {
             return (
               <>
                 <div key={JSON.stringify(item)} className="type-title">
-                  {item}
+                  <button onClick={toggleActivities()}>{item}</button> 
                 </div>
-                <div className="activities-container-type">
+                <div className={`activities-container-type ${showActivityList ? ` show${item}` : ` hide${item}`}`}>
                   {activities
                     .filter((activity) => activity.type.includes(item))
                     .map((activity) => {
