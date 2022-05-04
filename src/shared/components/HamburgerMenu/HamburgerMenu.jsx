@@ -29,7 +29,7 @@ export const HamburgerMenu = () => {
           <a href="/">Home</a>
         </li>
         {jwt && (
-          <li className="logoutLi">
+          <li>
             <a href="/dashboard">Dashboard</a>
           </li>
         )}
