@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API } from "../../shared/services/api";
 
 export const Activity = (params) => {
   const { _id } = useParams();
@@ -38,7 +39,11 @@ export const Activity = (params) => {
 
   const resolveActivity = () => {
     if (correctQuestions > 8) {
-      //TODO:  ENVIAR A BBDD
+      API.post("users/login", formData).then((res) => {
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        navigate("/dashboard");
+      });
       setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, has aprobado.`);
     } else {
       setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, inténtalo otra vez.`);
