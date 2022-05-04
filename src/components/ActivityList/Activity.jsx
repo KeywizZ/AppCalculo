@@ -16,7 +16,7 @@ export const Activity = (params) => {
   let navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
 
-  console.log('1 carga user', user)
+  console.log("1 carga user", user);
 
   console.log("INFO: loading questions from activity id: ", _id);
 
@@ -41,20 +41,22 @@ export const Activity = (params) => {
   const resolveActivity = () => {
     if (correctQuestions > 1) {
       user.completedActivities.push(_id);
-      API.patch(`users/add-activity/${user._id}`, user).then((res) => {
-        try {
-          localStorage.setItem("user", JSON.stringify(res.data.user));
-        console.log(`INFO: Activity ${activityName} was successfully added to user ${user.name}`)
-        } catch (error) {
-          console.error(error);
-        }
-      }).catch(error => console.log(error));
+      API.patch(`users/add-activity/${user._id}`, user)
+        .then((res) => {
+          try {
+            localStorage.setItem("user", JSON.stringify(res.data.user));
+            console.log(`INFO: Activity ${activityName} was successfully added to user ${user.name}`);
+          } catch (error) {
+            console.error(error);
+          }
+        })
+        .catch((error) => console.log(error));
       setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, has aprobado.`);
     } else {
       setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, inténtalo otra vez.`);
     }
     //NO SALE EL MENSAJE
-    alert('RESULTADO: ', finalMessage);
+    alert("RESULTADO: ", finalMessage);
     navigate("/dashboard");
   };
 
