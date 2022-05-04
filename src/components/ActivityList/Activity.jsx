@@ -41,13 +41,8 @@ export const Activity = (params) => {
     } else {
       setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, inténtalo otra vez.`);
     }
-<<<<<<< HEAD
     //NO SALE EL MENSAJE
     alert('RESULTADO: ', finalMessage);
-=======
-    //FIXME: NO SALE EL MENSAJE
-    alert(finalMessage);
->>>>>>> 9d3a12e1a4cebda78576e945b6667db1dd26855c
     navigate("/dashboard");
   };
 
