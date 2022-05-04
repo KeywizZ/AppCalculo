@@ -6,6 +6,7 @@ export const HomePage = () => {
   const [jwt] = useState(localStorage.getItem("token"));
 
   const user = JSON.parse(localStorage.getItem("user"));
+  
   return (
     <>
       {!jwt && (

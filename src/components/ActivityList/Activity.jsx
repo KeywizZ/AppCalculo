@@ -42,8 +42,12 @@ export const Activity = (params) => {
     if (correctQuestions > 1) {
       user.completedActivities.push(_id);
       API.patch(`users/add-activity/${user._id}`, user).then((res) => {
-        localStorage.setItem("user", JSON.stringify(res.data.user));
+        try {
+          localStorage.setItem("user", JSON.stringify(res.data.user));
         console.log(`INFO: Activity ${activityName} was successfully added to user ${user.name}`)
+        } catch (error) {
+          console.error(error);
+        }
       }).catch(error => console.log(error));
       setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, has aprobado.`);
     } else {
