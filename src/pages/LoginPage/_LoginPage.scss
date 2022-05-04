@@ -1,0 +1,84 @@
+
+    .login-title{
+        padding: 15px 0;
+    }
+
+
+
+
+.login-page {
+    display: flex;
+    height: 250px;
+    padding: 25px 0;
+    justify-content: center;
+
+
+    .container-form {
+        border-radius: 10px;
+        justify-content: center;
+        padding: 0 10%;
+        display: flex;
+        flex-direction: column;
+        background-color: $azulFondo;
+        align-items: center;
+
+        .user-input {
+            padding: 15px 0;
+            width: 100%;
+
+            input {
+                width: 200px;
+            }
+
+            input:focus {
+                background: $buttonColor;
+            }
+
+            label {
+                width: 150px;
+                font-weight: bold;
+                display: inline-block;
+                text-align: left;
+                color: $buttonColor;
+            }
+
+        }
+
+        .pass-input {
+            padding: 15px 0;
+            width: 100%;
+
+            input {
+                width: 200px;
+            }
+
+            input:focus {
+                background: $buttonColor;
+            }
+
+            label {
+                width: 150px;
+                font-weight: bold;
+                display: inline-block;
+                text-align: left;
+                color: $buttonColor;
+            }
+        }
+
+        .btn {
+
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+    }
+
+    .btn:hover {
+        background-color: $buttonColor;
+        color: white;
+        cursor: pointer;
+
+    }
+
+
+}
