@@ -14,7 +14,6 @@ export const ActivityList = () => {
   }, [url]);
 
   const types = [...new Set(activities.map((item) => item.type))];
-  console.log(types);
 
   return (
     <>

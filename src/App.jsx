@@ -13,7 +13,8 @@ import { HamburgerMenu } from "./shared/components/HamburgerMenu/HamburgerMenu";
 import { JwtContext } from "./shared/context/JwtContext";
 import { ActivityPage } from "./pages/ActivityPage/ActivityPage";
 import { ActivityList } from "./components/ActivityList/ActivityList";
-import { ButtonLogout } from "./components/LoginForm/ButtonLogout";
+import { About } from "./pages/About/About";
+import { Help } from "./pages/Help/Help";
 
 function App() {
   const [jwt, setJwt] = useState(localStorage.getItem("token"));
@@ -37,6 +38,8 @@ function App() {
                 element={<ActivityPage />}
               />
               <Route path="/activities" element={<ActivityList />} />
+              <Route path="/help" element={<Help />} />
+              <Route path="/about" element={<About />} />
             </Route>
           </Routes>
         </Router>

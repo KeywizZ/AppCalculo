@@ -32,6 +32,16 @@ align-items: flex-start;
 }
 
 
+.showMenu {
+  li {
+    margin: 10px;
+    a {
+      color: white;
+      font-size: 30px;
+    }
+  }
+}
+
 /* .hamburger button {
   color: black;
    right: 40px;
