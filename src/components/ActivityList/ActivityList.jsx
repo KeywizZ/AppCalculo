@@ -34,7 +34,7 @@ export const ActivityList = () => {
             return (
               <>
                 <div key={JSON.stringify(item)} className="type-title">
-                  <button onClick={toggleActivities()}>{item}</button> 
+                  <button onClick={toggleActivities}>{item}</button> 
                 </div>
                 <div className={`activities-container-type ${showActivityList ? ` show${item}` : ` hide${item}`}`}>
                   {activities
