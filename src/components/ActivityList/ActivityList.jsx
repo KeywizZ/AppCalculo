@@ -15,10 +15,14 @@ export const ActivityList = () => {
 
   const types = [...new Set(activities.map((item) => item.type))];
 
-  const [showActivityList, setShowActivityList] = useState(false);
-  function toggleActivities() {
-    setShowActivityList(!showActivityList);
-  }
+  const setVisivility = (id) => {
+    try {
+      if (document.getElementById(id).style.visibility === "show") document.querySelector(id).style.visibility = "hidden";
+      else document.querySelector(id).style.visibility = "show";
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -28,25 +32,17 @@ export const ActivityList = () => {
           types.map((item) => {
             return (
               <>
-                <div key={JSON.stringify(item)} className="type-title">
-                  <button onClick={toggleActivities}>{item}</button> 
-                </div>
-                <div className={`activities-container-type ${showActivityList ? ` show${item}` : ` hide${item}`}`}>
+                <button className="list-activity-button" onClick={document.getElementById({item}).hidden = !document.getElementById({item}).hidden}>
+                  {item}
+                </button>
+                <div key={JSON.stringify(item)} className="activities" id={item}>
                   {activities
                     .filter((activity) => activity.type.includes(item))
                     .map((activity) => {
                       return (
-                        <div
-                          className="activity-card"
-                          key={JSON.stringify(activity)}
-                        >
-                          <Link
-                            to={`activities/${activity._id}`}
-                            className="activity-anchor"
-                          >
-                            <button className="activity-btn">
-                              {activity.id}
-                            </button>
+                        <div className="activity-card" key={JSON.stringify(activity)}>
+                          <Link to={`activities/${activity._id}`} className="activity-anchor">
+                            <button className="activity-btn">{activity.id}</button>
                           </Link>
                         </div>
                       );
