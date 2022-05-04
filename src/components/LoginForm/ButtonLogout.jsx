@@ -7,6 +7,7 @@ export const ButtonLogout = () => {
   const { setJwt } = useContext(JwtContext);
   const logOut = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setJwt(null);
     navigate("/");
     window.location.reload();
