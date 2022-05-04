@@ -1,25 +1,44 @@
-.container-activities {
-    display: flex;
-    flex-direction: column;
+.dashboard {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    .activities-container-type {
+    .container-activities {
         display: flex;
-        flex-wrap: wrap;
-        width: auto;
+        flex-direction: column;
+        width: 500px;
+
+        .type-title {
+            margin: 25px 0;
+        }
+
+
+        .activities-container-type {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-between;
+            background-color: $azulFondo;
+        }
+
+        .activity-card {
+            margin: 0;
+            padding: 0;
+        }
+
+        .activity-anchor {
+            margin: 5px;
+            padding: 0 5px;
+
+        }
+
+        .activity-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            background-color: $buttonColor;
+        }
+
     }
-
-    .activity-card {
-        width: 50px;
-    }
-
-    .activity-anchor {
-        width: 50px;
-    }
-
-    .activity-btn {
-        width: 50px;
-    }
-
-
 }

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { JwtContext } from "../../contexts/JwtContext";
+import { JwtContext } from "../../shared/context/JwtContext";
 
 export const ButtonLogout = () => {
   let navigate = useNavigate();
@@ -8,7 +8,8 @@ export const ButtonLogout = () => {
   const logOut = () => {
     localStorage.removeItem("token");
     setJwt(null);
-    navigate("/login");
+    navigate("/");
+    window.location.reload();
   };
   return <button onClick={logOut}>Log Out</button>;
 };

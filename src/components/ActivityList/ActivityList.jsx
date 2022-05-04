@@ -22,8 +22,10 @@ export const ActivityList = () => {
         {activities &&
           types.map((item) => {
             return (
-              <div key={JSON.stringify(item)}>
-                <div className="type-title">{item}</div>
+              <>
+                <div key={JSON.stringify(item)} className="type-title">
+                  {item}
+                </div>
                 <div className="activities-container-type">
                   {activities
                     .filter((activity) => activity.type.includes(item))
@@ -33,14 +35,19 @@ export const ActivityList = () => {
                           className="activity-card"
                           key={JSON.stringify(activity)}
                         >
-                          <Link to={`activities/${activity._id}`} className="activity-anchor">
-                            <button className="activity-btn">{activity.id}</button>
+                          <Link
+                            to={`activities/${activity._id}`}
+                            className="activity-anchor"
+                          >
+                            <button className="activity-btn">
+                              {activity.id}
+                            </button>
                           </Link>
                         </div>
                       );
                     })}
                 </div>
-              </div>
+              </>
             );
           })}
       </div>
