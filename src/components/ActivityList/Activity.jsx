@@ -28,7 +28,7 @@ export const Activity = (params) => {
 
   const evaluateQuestion = (question, answer) => {
     setIndex(index + 1);
-    //TODO: SUSTITUOR EVAL POR OTRA FUNCION
+    //TODO: SUSTITUIR EVAL POR OTRA FUNCION
     if (eval(question) === parseInt(answer)) setCorrectQuestions(correctQuestions + 1);
     if (index === 9) setActivityCompleted(true);
     setAnswer("");
@@ -36,12 +36,12 @@ export const Activity = (params) => {
 
   const resolveActivity = () => {
     if (correctQuestions > 8) {
-      //TODO - ENVIAR A BBDD
+      //TODO:  ENVIAR A BBDD
       setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, has aprobado.`);
     } else {
       setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, inténtalo otra vez.`);
     }
-    //NO SALE EL MENSAJE
+    //FIXME: NO SALE EL MENSAJE
     alert(finalMessage);
     navigate("/dashboard");
   };

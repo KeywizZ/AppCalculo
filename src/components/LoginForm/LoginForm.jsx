@@ -12,7 +12,7 @@ export const LoginForm = () => {
       localStorage.setItem("token", res.data);
       navigate("/dashboard");
     });
-    console.log(formData);
+    /*  console.log(formData); */
   };
 
   return (
