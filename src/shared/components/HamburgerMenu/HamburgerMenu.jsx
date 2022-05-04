@@ -20,7 +20,6 @@ export const HamburgerMenu = () => {
         <button onClick={handleToggle}>
           {hamburgerOpen ? <ImCross /> : <GiHamburgerMenu />}
         </button>
-        
       </div>
       <ul
         id="nav-list"
@@ -29,14 +28,20 @@ export const HamburgerMenu = () => {
         <li>
           <a href="/">Home</a>
         </li>
+        {jwt && (
+          <li className="logoutLi">
+            <a href="/dashboard">Dashboard</a>
+          </li>
+        )}
         <li>
           <a href="/about">Sobre Nosotros</a>
         </li>
         <li>
           <a href="/help">Ayuda</a>
         </li>
+
         {jwt && (
-          <li>
+          <li className="logoutLi">
             <ButtonLogout onClick={handleToggle} />
           </li>
         )}
