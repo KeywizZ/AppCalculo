@@ -39,9 +39,8 @@ export const Activity = (params) => {
 
   const resolveActivity = () => {
     if (correctQuestions > 8) {
-      API.post("users/login", formData).then((res) => {
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("user", JSON.stringify(res.data.user));
+      API.post(`/add-activity/${_id}`).then((res) => {
+        console.log('activity inserted');
         navigate("/dashboard");
       });
       setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, has aprobado.`);
