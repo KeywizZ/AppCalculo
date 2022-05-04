@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { JwtContext } from "../../shared/context/JwtContext";
 import { API } from "../../shared/services/api";
 
 export const LoginForm = () => {
+  const { setJwt } = useContext(JwtContext);
   const { register, handleSubmit } = useForm();
   let navigate = useNavigate();
 
   const onSubmit = (formData) => {
     API.post("users/login", formData).then((res) => {
       localStorage.setItem("token", res.data.token);
+      setJwt(res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       navigate("/dashboard");
     });
