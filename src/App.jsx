@@ -15,6 +15,7 @@ import { ActivityPage } from "./pages/ActivityPage/ActivityPage";
 import { ActivityList } from "./components/ActivityList/ActivityList";
 import { About } from "./pages/About/About";
 import { Help } from "./pages/Help/Help";
+import { RegisterPage } from "./pages/RegisterPage/RegisterPage";
 
 function App() {
   const [jwt, setJwt] = useState(localStorage.getItem("token"));
@@ -40,6 +41,7 @@ function App() {
               <Route path="/activities" element={<ActivityList />} />
               <Route path="/help" element={<Help />} />
               <Route path="/about" element={<About />} />
+              <Route path="/register" element={<RegisterPage />} />
             </Route>
           </Routes>
         </Router>

@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { API } from "../../shared/services/api";
+import { JwtContext } from "../../shared/context/JwtContext";
 
 export const RegisterForm = () => {
+  const [jwt] = useState(localStorage.getItem("token"));
   const { register, handleSubmit } = useForm();
   let navigate = useNavigate();
+  console.log("Form", jwt);
 
-  const onSubmit = (formData) => {
-    API.post("users/register", formData)
+  const onSubmit = (formData, jwt) => {
+    API.post("users/register", formData, {
+      headers: {
+        "authorization": jwt,
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => {
         console.log(res);
-        navigate("/login");
+        navigate("/dashboard");
       })
       .catch((err) => {});
   };
@@ -46,9 +55,10 @@ export const RegisterForm = () => {
       <div className="">
         <label>Rol</label>
         <select {...register("rol", { require: true })}>
-          <option>Admin</option>
-          <option>Student</option>
-          <option>Guardians</option>
+          <option>ADMIN</option>
+          <option>STUDENT</option>
+          <option>GUARDIANS</option>
+          <option>TEACHER</option>
         </select>
       </div>
       <button>Register</button>

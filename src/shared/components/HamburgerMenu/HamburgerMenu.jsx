@@ -12,8 +12,8 @@ export const HamburgerMenu = () => {
     setHamburgerOpen(!hamburgerOpen);
   };
 
-  const [jwt, setJwt] = useState(localStorage.getItem("token"));
-  console.log(jwt);
+  const [jwt] = useState(localStorage.getItem("token"));
+  //console.log(jwt);
   return (
     <div className="hamburger">
       <div className="buttonContainer">
