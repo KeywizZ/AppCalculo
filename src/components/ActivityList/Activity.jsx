@@ -13,6 +13,8 @@ export const Activity = (params) => {
   const [finalMessage, setFinalMessage] = useState("");
   const [answer, setAnswer] = useState();
   let navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user.role === 'ADMIN' || 'TEACHER' ? 'is admin or teacher':'not admin or teacher');
 
   console.log("INFO: loading questions from activity id: ", _id);
 
@@ -24,7 +26,7 @@ export const Activity = (params) => {
       setQuestions(res.data.questions.sort(() => 0.5 - Math.random()).slice(0, 10));
       setActivityName(`${res.data.type}: actividad n.º ` + res.data.id.substring(2));
     });
-  }, [url]);
+  }, []);
 
   const evaluateQuestion = (question, answer) => {
     setIndex(index + 1);
