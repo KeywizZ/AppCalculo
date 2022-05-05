@@ -46,31 +46,35 @@ export const RegisterForm = () => {
 
   return (
     <form ref={form} onSubmit={handleSubmit(onSubmit)}>
-      <label>Nombre de Usuario</label>
-      <input
-        type="text"
-        name="user_name"
-        {...register("user_name", { required: true })}
-      />
-      <label>Correo electrónico</label>
-      <input
-        type="email"
-        name="user_email"
-        {...register("user_email", {
-          required: true,
-          pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-        })}
-      />
-      <label>Contraseña</label>
-      <input
-        type="password"
-        name="user_password"
-        {...register("user_password", {
-          required: true,
-          pattern:
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
-        })}
-      />
+      <div className="user-input">
+        <label>Nombre de Usuario</label>
+        <input
+          type="text"
+          name="user_name"
+          {...register("user_name", { required: true })}
+        />
+      </div>
+      <div className="pass-input">
+        <label>Correo electrónico</label>
+        <input
+          type="email"
+          name="user_email"
+          {...register("user_email", {
+            required: true,
+            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+          })}
+        />
+        <label>Contraseña</label>
+        <input
+          type="password"
+          name="user_password"
+          {...register("user_password", {
+            required: true,
+            pattern:
+              /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
+          })}
+        />
+      </div>
       <div className="fomr-role">
         <label>Rol</label>
         <select {...register("role", { require: true })}>
