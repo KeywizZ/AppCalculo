@@ -13,14 +13,14 @@ export const ActivityList = () => {
     });
   }, []);
 
-  const types = [...new Set(activities.map((item) => item.type))];
+  const types = [...new Set(activities.map((activity) => activity.type))];
 
   return (
     <div className="container-activities">
       <h2>Lista de actividades</h2>
       {activities &&
         types.map((type) => {
-          return <ActivityByType type={type} />;
+          return <div key={JSON.stringify(type)} ><ActivityByType type={type} /></div>;
         })}
     </div>
   );
