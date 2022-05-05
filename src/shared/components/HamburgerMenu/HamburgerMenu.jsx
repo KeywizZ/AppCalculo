@@ -12,7 +12,7 @@ export const HamburgerMenu = () => {
   const handleToggle = () => {
     setHamburgerOpen(!hamburgerOpen);
   };
- 
+
   return (
     <div className="hamburger">
       <div className="buttonContainer">
@@ -27,17 +27,23 @@ export const HamburgerMenu = () => {
         <li>
           <a href="/">Home</a>
         </li>
-        {jwt && (
-          <li>
-            <a href="/dashboard">Dashboard</a>
-          </li>
-        )}
         <li>
           <a href="/about">Sobre Nosotros</a>
         </li>
         <li>
           <a href="/help">Ayuda</a>
         </li>
+        {jwt && (
+          <li>
+            <a href="/dashboard">Dashboard</a>
+          </li>
+        )}
+        {jwt && (
+          <li>
+            <a href="/register">Registrar usuario</a>
+          </li>
+        )}
+
         {jwt && (
           <li className="logoutLi">
             <ButtonLogout onClick={handleToggle} />

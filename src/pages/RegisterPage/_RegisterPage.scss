@@ -2,10 +2,12 @@
     padding: 15px 0;
 }
 
+
 .register-page {
     display: flex;
     padding: 5px;
     justify-content: center;
+
 
     .container-form {
         padding: 1rem;
@@ -14,6 +16,8 @@
         background-color: $azulFondo;
         width: 500px;
         border-radius: .5em;
+
+
 
         .user-input {
             text-align: left;
@@ -59,7 +63,6 @@
 
         }
 
-
     }
 
     .pass-input {
@@ -94,8 +97,6 @@
             background: $buttonColor;
         }
 
-
-
     }
 
     .btn {
@@ -122,6 +123,7 @@
 
     .form-role {
         text-align: left;
+
         label {
             display: inline-block;
             margin: 0.5rem 0;
@@ -143,6 +145,14 @@
         color: white;
         cursor: pointer;
 
+    }
+
+    @include tablet {
+        .container-form {
+            padding: 25px;
+            //background-color: red;
+
+        }
     }
 
 }

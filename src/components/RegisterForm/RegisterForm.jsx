@@ -84,7 +84,6 @@ export const RegisterForm = () => {
         <select {...register("role", { require: true })}>
           <option>ADMIN</option>
           <option>STUDENT</option>
-          <option>GUARDIANS</option>
           <option>TEACHER</option>
         </select>
         <button className="btn">Registro</button>

@@ -1,21 +1,21 @@
 @import "./variables";
 
 @mixin desktop {
-    @media screen and (max-width: #{$desktop}) {
+    @media screen and (min-width: #{$desktop}) {
         @content;
     }
 }
 
 
 @mixin tablet {
-    @media screen and (max-width: #{$tablet}) {
+    @media screen and (min-width: #{$tablet}) {
         @content;
     }
 }
 
 
 @mixin movil {
-    @media screen and (max-width: #{$movil}) {
+    @media screen and (min-width: #{$movil}) {
         @content;
     }
 }

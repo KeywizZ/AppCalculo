@@ -6,7 +6,7 @@ export const RegisterPage = () => {
 
   return (
     <div className="login-title">
-      <h1>Iniciar Sesión</h1>
+      <h1>Registrar Usuario</h1>
       <div className="register-page">
         <RegisterForm />
       </div>
