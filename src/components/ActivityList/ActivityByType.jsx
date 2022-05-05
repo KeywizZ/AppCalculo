@@ -14,7 +14,7 @@ export const ActivityByType = (props) => {
   }, [url]);
 
   return (
-    <>
+    <div className="container-activities-by-type">
       <button className="toggle-type-button" onClick={() => setShow(!show)}>
         {props.type}
       </button>
@@ -33,6 +33,6 @@ export const ActivityByType = (props) => {
             })}
         </div>
       )}
-    </>
+    </div>
   );
 };
