@@ -3,6 +3,13 @@ import { RegisterForm } from "../../components/RegisterForm/RegisterForm";
 
 export const RegisterPage = () => {
   console.log("INFO: LoginPage component");
-  
-  return <RegisterForm />;
+
+  return (
+    <div className="login-title">
+      <h1>Iniciar Sesión</h1>
+      <div className="register-page">
+        <RegisterForm />
+      </div>
+    </div>
+  );
 };
