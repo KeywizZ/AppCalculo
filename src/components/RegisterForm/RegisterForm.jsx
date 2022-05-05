@@ -16,10 +16,10 @@ export const RegisterForm = () => {
 
   const onSubmit = (formData, e) => {
     e.preventDefault();
- /*    console.log(e.target.elements.name.value);
+    /*    console.log(e.target.elements.name.value);
     console.log(e.target.name.value) ; */
 
-     emailjs
+    emailjs
       .sendForm(
         "service_q51kznk",
         "template_2wp305r",
@@ -34,20 +34,24 @@ export const RegisterForm = () => {
         (error) => {
           console.log(error.text);
         }
-      ); 
+      );
     API.post("users/register", formData)
       .then((res) => {
         console.log(res);
         navigate("/dashboard");
       })
       .catch((err) => {});
-      console.log(formData)
+    console.log(formData);
   };
 
   return (
-    <form ref={form} onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="container-form"
+      ref={form}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="user-input">
-        <label>Nombre de Usuario</label>
+        <label>Nombre de Usuario: </label>
         <input
           type="text"
           name="user_name"
@@ -55,7 +59,7 @@ export const RegisterForm = () => {
         />
       </div>
       <div className="pass-input">
-        <label>Correo electrónico</label>
+        <label>Correo electrónico: </label>
         <input
           type="email"
           name="user_email"
@@ -64,7 +68,7 @@ export const RegisterForm = () => {
             pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
           })}
         />
-        <label>Contraseña</label>
+        <label>Contraseña: </label>
         <input
           type="password"
           name="user_password"
@@ -75,16 +79,16 @@ export const RegisterForm = () => {
           })}
         />
       </div>
-      <div className="fomr-role">
-        <label>Rol</label>
+      <div className="form-role">
+        <label>Rol: </label>
         <select {...register("role", { require: true })}>
           <option>ADMIN</option>
           <option>STUDENT</option>
           <option>GUARDIANS</option>
           <option>TEACHER</option>
         </select>
+        <button className="btn">Registro</button>
       </div>
-      <button>Register</button>
     </form>
   );
 };
