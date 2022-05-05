@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Chart } from "./Chart";
 import axios from "axios";
 
-export const Porfile = () => {
+export const Profile = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
   const [completed, setCompleted] = useState(0);
   const [remaining, setRemaining] = useState(0);
