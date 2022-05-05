@@ -54,7 +54,6 @@ export const RegisterForm = () => {
           <option>TEACHER</option>
         </select>
       </div>
-      
       <button>Register</button>
     </form>
   );
