@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { API } from "../../shared/services/api";
+import { evaluate } from "mathjs";
+import { Link } from "react-router-dom";
 
 export const Activity = (params) => {
   const { _id } = useParams();
@@ -14,9 +16,7 @@ export const Activity = (params) => {
   const [finalMessage, setFinalMessage] = useState("");
   const [answer, setAnswer] = useState();
   let navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user"));
-
-  console.log("1 carga user", user);
+  const user = JSON.parse(sessionStorage.getItem("user"));
 
   console.log("INFO: loading questions from activity id: ", _id);
 
@@ -33,7 +33,8 @@ export const Activity = (params) => {
   const evaluateQuestion = (question, answer) => {
     setIndex(index + 1);
     //TODO: SUSTITUIR EVAL POR OTRA FUNCION
-    if (eval(question) === parseInt(answer)) setCorrectQuestions(correctQuestions + 1);
+    console.log(evaluate(question));
+    if (evaluate(question) === parseInt(answer)) setCorrectQuestions(correctQuestions + 1);
     if (index === 9) setActivityCompleted(true);
     setAnswer("");
   };
@@ -43,11 +44,14 @@ export const Activity = (params) => {
       user.completedActivities.push(_id);
       API.patch(`users/add-activity/${user._id}`, user)
         .then((res) => {
-          try {
-            localStorage.setItem("user", JSON.stringify(res.data.user));
-            console.log(`INFO: Activity ${activityName} was successfully added to user ${user.name}`);
-          } catch (error) {
-            console.error(error);
+          if (user !== undefined) {
+            try {
+              sessionStorage.removeItem("user");
+              sessionStorage.setItem("user", JSON.stringify(res.data.user));
+              console.log(`INFO: Activity ${activityName} was successfully added to user ${user.name}`);
+            } catch (error) {
+              console.error(error);
+            }
           }
         })
         .catch((error) => console.log(error));
@@ -62,15 +66,19 @@ export const Activity = (params) => {
 
   return (
     <div className="activity-card">
+      <Link to={"/dashboard"}>
+        <button className="return-btn">Volver a lista de actividades</button>
+      </Link>
       <div className="activity-title">{activityName}</div>
-      <div className="question-frame">
+      {!activityCompleted && (<div className="question-frame">
         <div className="question">{questions[index]}</div>
         <div className="answer">
           <input value={answer} onInput={(e) => setAnswer(e.target.value)} />
         </div>
+        <button onClick={() => evaluateQuestion(questions[index], answer)}>Siguiente</button>
       </div>
 
-      {!activityCompleted && <button onClick={() => evaluateQuestion(questions[index], answer)}>Siguiente</button>}
+       )}
       {activityCompleted && <button onClick={() => resolveActivity()}>Enviar Actividad</button>}
     </div>
   );
