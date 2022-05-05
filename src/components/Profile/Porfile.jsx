@@ -26,7 +26,7 @@ export const Porfile = () => {
     <div className="user-profile">
       <div className="profile-info">
         <p className="info-user">
-          Bienvenido <b>{user.name}</b>, tu cuenta es de {user.role}
+          Bienvenido <b>{user.name}</b >, tu cuenta es de {user.role}
         </p>
 
         {(user.type === "STUDENT" || "ADMIN") && (
