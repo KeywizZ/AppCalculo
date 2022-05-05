@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AiOutlineArrowDown } from "react-icons/ai";
-import { BsArrow90DegUp, BsArrowReturnLeft } from "react-icons/bs";
+import { BsArrowReturnLeft } from "react-icons/bs";
 
 export const ActivityByType = (props) => {
   const [activities, setActivities] = useState([]);
@@ -18,10 +18,11 @@ export const ActivityByType = (props) => {
   const [showContainer, setShowContainer] = useState(false);
 
   return (
-    <div className={`container-activities-by-type ${
-          showContainer ? " showContainer" : " hideContainer"
-        }`} >
-      
+    <div
+      className={`container-activities-by-type ${
+        showContainer ? " showContainer" : " hideContainer"
+      }`}
+    >
       <button
         className="toggle-type-button"
         onClick={(e) => (setShow(!show), setShowContainer(!showContainer))}
