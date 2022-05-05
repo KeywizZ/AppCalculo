@@ -25,21 +25,15 @@ export const Activity = (params) => {
 
   useEffect(() => {
     axios(url).then((res) => {
-      setQuestions(
-        res.data.questions.sort(() => 0.5 - Math.random()).slice(0, 10)
-      );
-      setActivityName(
-        `${res.data.type}: actividad n.º ` + res.data.id.substring(2)
-      );
+      setQuestions(res.data.questions.sort(() => 0.5 - Math.random()).slice(0, 10));
+      setActivityName(`${res.data.type}: actividad n.º ` + res.data.id.substring(2));
     });
   }, []);
 
   const evaluateQuestion = (question, answer) => {
     setIndex(index + 1);
-    //TODO: SUSTITUIR EVAL POR OTRA FUNCION
     console.log(evaluate(question));
-    if (evaluate(question) === parseInt(answer))
-      setCorrectQuestions(correctQuestions + 1);
+    if (evaluate(question) === parseInt(answer)) setCorrectQuestions(correctQuestions + 1);
     if (index === 9) setActivityCompleted(true);
     setAnswer("");
   };
@@ -49,29 +43,24 @@ export const Activity = (params) => {
       user.completedActivities.push(_id);
       API.patch(`users/add-activity/${user._id}`, user)
         .then((res) => {
-          if (user !== undefined) {
+          console.log(`INFO: Activity ${activityName} was successfully added to user ${user.name}`);
+          console.log('new user',res.data)
+          if (res.data.user !== undefined) {
             try {
-              sessionStorage.removeItem("user");
-              sessionStorage.setItem("user", JSON.stringify(res.data.user));
-              console.log(
-                `INFO: Activity ${activityName} was successfully added to user ${user.name}`
-              );
+              sessionStorage.setItem("user", JSON.stringify(res.data));
+              
             } catch (error) {
               console.error(error);
             }
           }
         })
         .catch((error) => console.log(error));
-      setFinalMessage(
-        `Has contestado bien ${correctQuestions} preguntas, has aprobado.`
-      );
+      setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, has aprobado.`);
     } else {
-      setFinalMessage(
-        `Has contestado bien ${correctQuestions} preguntas, inténtalo otra vez.`
-      );
+      setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, inténtalo otra vez.`);
     }
-    //FIXME: NO SALE EL RESULTADO
-    alert("RESULTADO: " + correctQuestions);
+    //NO SALE EL MENSAJE
+    alert("RESULTADO: " + finalMessage);
     navigate("/dashboard");
   };
 
@@ -81,20 +70,16 @@ export const Activity = (params) => {
         <button className="return-btn">Volver a lista de actividades</button>
       </Link>
       <div className="activity-title">{activityName}</div>
-      {!activityCompleted && (
-        <div className="question-frame">
-          <div className="question">{questions[index]}</div>
-          <div className="answer">
-            <input value={answer} onInput={(e) => setAnswer(e.target.value)} />
-          </div>
-          <button onClick={() => evaluateQuestion(questions[index], answer)}>
-            Siguiente
-          </button>
+      {!activityCompleted && (<div className="question-frame">
+        <div className="question">{questions[index]}</div>
+        <div className="answer">
+          <input value={answer} onInput={(e) => setAnswer(e.target.value)} />
         </div>
-      )}
-      {activityCompleted && (
-        <button onClick={() => resolveActivity()}>Enviar Actividad</button>
-      )}
+        <button onClick={() => evaluateQuestion(questions[index], answer)}>Siguiente</button>
+      </div>
+
+       )}
+      {activityCompleted && <button onClick={() => resolveActivity()}>Enviar Actividad</button>}
     </div>
   );
 };
