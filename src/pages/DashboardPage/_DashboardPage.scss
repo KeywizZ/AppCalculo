@@ -8,6 +8,23 @@
     margin-bottom: 60px;
     gap: 10px;
 
+    .profile-btn {
+        padding: 10px;
+        border: none;
+        border-radius: 7px;
+        background-color: $buttonColor;
+        color: whitesmoke;
+        font-size: 20px;
+    }
+
+.container-activities-by-type {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
     .container-activities {
         display: flex;
         max-width: 100%;
@@ -15,13 +32,11 @@
         margin-left: 20px;
         flex-direction: column;
         flex-wrap: wrap;
-/*      width: 500px;       */
         align-items: center;
 
         .type-title {
             margin: 25px 0;
         }
-
 
         .activities-container-type {
             display: flex;
@@ -52,5 +67,5 @@
 
     }
 
-    
+
 }

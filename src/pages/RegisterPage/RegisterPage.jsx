@@ -5,11 +5,13 @@ export const RegisterPage = () => {
   console.log("INFO: LoginPage component");
 
   return (
-    <div className="login-title">
-      <h1>Registrar Usuario</h1>
+    <>
+      <div className="register-title">
+        <h1>Registrar Usuario</h1>
+      </div>
       <div className="register-page">
         <RegisterForm />
       </div>
-    </div>
+    </>
   );
 };
