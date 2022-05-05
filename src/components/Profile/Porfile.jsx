@@ -4,7 +4,6 @@ import axios from "axios";
 
 export const Porfile = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
-  console.log("prfile", user);
   const [completed, setCompleted] = useState(0);
   const [remaining, setRemaining] = useState(0);
   const [activityNumber, setActivityNumber] = useState(0);
@@ -13,24 +12,26 @@ export const Porfile = () => {
 
   useEffect(() => {
     axios(url).then((res) => {
-      setActivityNumber(res.data.count());
-      if (user !== undefined) {
-        setCompleted(user.completedActivities.count());
+      setActivityNumber(res.data.length);
+      if (user) {
+        console.log('profile',user.completedActivities)
+        setCompleted(user.completedActivities.length);
       }
       setRemaining(activityNumber - completed);
     });
+    console.log('completed:', completed, "remaining: ", remaining)
   }, [url, activityNumber, completed, remaining, user]);
 
   return (
     <div className="user-profile">
       <div className="profile-info">
-        <p>
-          Bienvenido {user.name}, tu cuenta es de {user.role}
+        <p className="info-user">
+          Bienvenido <b>{user.name}</b>, tu cuenta es de {user.role}
         </p>
 
         {(user.type === "STUDENT" || "ADMIN") && (
-          <div className="student-chart">
-            <h3>Has completado las siguientes actividades:</h3>
+          <div className="chart-card">
+            <h3>Este es tu progreso en cálculo mental</h3>
             <Chart completed={completed} remaining={remaining} />
           </div>
         )}

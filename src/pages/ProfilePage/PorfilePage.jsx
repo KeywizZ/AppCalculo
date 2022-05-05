@@ -1,8 +1,10 @@
-import React from 'react'
-import { Porfile } from '../../components/Profile/Porfile'
+import React from "react";
+import { Porfile } from "../../components/Profile/Porfile";
 
 export const PorfilePage = () => {
   return (
-    <Porfile />
-  )
-}
+    <div className="chart-container">
+      <Porfile />
+    </div>
+  );
+};
