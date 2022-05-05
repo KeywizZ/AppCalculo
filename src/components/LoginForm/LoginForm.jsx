@@ -23,7 +23,6 @@ export const LoginForm = () => {
         alert("No se ha podido iniciar sesion");
       });
 
-    /*  console.log(formData); */
   };
 
   return (
@@ -49,7 +48,6 @@ export const LoginForm = () => {
           type="password"
           name="password"
           placeholder="contraseña"
-          pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/i"
           {...register("password", {
             required: true
           })}
