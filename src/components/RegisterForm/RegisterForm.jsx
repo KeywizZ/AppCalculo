@@ -71,7 +71,7 @@ export const RegisterForm = () => {
             /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
         })}
       />
-      <div className="">
+      <div className="fomr-role">
         <label>Rol</label>
         <select {...register("role", { require: true })}>
           <option>ADMIN</option>
@@ -80,6 +80,7 @@ export const RegisterForm = () => {
           <option>TEACHER</option>
         </select>
       </div>
+      
       <button>Register</button>
     </form>
   );

@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Radio+Canada&display=swap");
 @import "./pages/HomePage/HomePage";
 @import "./variables";
+@import "./mixins";
 @import "/src/shared/components/HamburgerMenu/HamburgerMenu";
 @import "./pages/DashboardPage/DashboardPage";
 @import "./pages/LoginPage/LoginPage";
+
 
 
 * {
