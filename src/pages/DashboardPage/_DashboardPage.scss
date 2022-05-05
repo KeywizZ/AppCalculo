@@ -17,13 +17,11 @@
         font-size: 20px;
     }
 
-.container-activities-by-type {
-    display: flex;
-    flex-direction: column;
-}
-
-
-
+    .container-activities-by-type {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+    }
 
     .container-activities {
         display: flex;
@@ -42,9 +40,9 @@
             display: flex;
             border-radius: 6px;
             flex-wrap: wrap;
-            max-width: 90%;
-            justify-content: space-between;
+            justify-content: space-around;
             background-color: $azulFondo;
+            margin: 25px 0;
         }
 
         .activity-card {
