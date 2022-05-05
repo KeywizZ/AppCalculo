@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const ActivityByType = (props) => {
   const [activities, setActivities] = useState([]);
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(false);
   let url = "https://polar-castle-88468.herokuapp.com/api/activities";
   useEffect(() => {
     axios(url).then((res) => {
@@ -15,20 +15,24 @@ export const ActivityByType = (props) => {
 
   return (
     <>
-      <button className="toggle-type-button" onClick={() => setShow(!show)}>{props.type}</button>
-      {show && <div key={JSON.stringify(props.type)} className="activity-by-type-container" id={props.type}>
-        {activities
-          .filter((activity) => activity.type.includes(props.type))
-          .map((activity) => {
-            return (
-              <div className="activity-card" key={JSON.stringify(activity)}>
-                <Link to={`activities/${activity._id}`} className="activity-anchor">
-                  <button className="activity-btn">{activity.id}</button>
-                </Link>
-              </div>
-            );
-          })}
-      </div>}
+      <button className="toggle-type-button" onClick={() => setShow(!show)}>
+        {props.type}
+      </button>
+      {show && (
+        <div className="activity-by-type-container" id={props.type}>
+          {activities
+            .filter((activity) => activity.type.includes(props.type))
+            .map((activity) => {
+              return (
+                <div className="activity-card" key={JSON.stringify(activity)}>
+                  <Link to={`activities/${activity._id}`} className="activity-anchor">
+                    <button className="activity-btn">{activity.id}</button>
+                  </Link>
+                </div>
+              );
+            })}
+        </div>
+      )}
     </>
   );
 };
