@@ -19,7 +19,7 @@ export const ActivityByType = (props) => {
         {props.type}
       </button>
       {show && (
-        <div className="activity-by-type-container" id={props.type}>
+        <div className="activity-by-type-container activities-container-type" id={props.type}>
           {activities
             .filter((activity) => activity.type.includes(props.type))
             .map((activity) => {
