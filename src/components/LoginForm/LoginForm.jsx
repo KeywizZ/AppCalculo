@@ -37,7 +37,7 @@ export const LoginForm = () => {
         />
         <p>Nunca compartiremos tu correo con terceros</p>
       </div>
-      <div className="pass-input">
+      <div className="user-input">
         <label>Contraseña: </label>
         <input
           type="password"
