@@ -9,20 +9,16 @@ export const LoginForm = () => {
   const { register, handleSubmit } = useForm();
   let navigate = useNavigate();
 
-  const onSubmit = (e, formData) => {
-    // if (formData.target.password.value )
-    API.post("users/login", formData)
-      .then((res) => {
-        sessionStorage.setItem("token", res.data.token);
-        setJwt(res.data.token);
-        sessionStorage.setItem("user", JSON.stringify(res.data.user));
-        navigate("/dashboard");
-      })
-      .catch((error) => {
-        console.log(error);
-        alert("No se ha podido iniciar sesion");
-      });
-
+  const onSubmit = (formData) => {
+    API.post("users/login", formData).then((res) => {
+      sessionStorage.setItem("token", res.data.token);
+      setJwt(res.data.token);
+      sessionStorage.setItem("user", JSON.stringify(res.data.user));
+      navigate("/dashboard");
+    }).catch((error) => {
+      console.log(error);
+      alert("No se ha podido iniciar sesion");
+    });;
     /*  console.log(formData); */
   };
 
@@ -35,7 +31,8 @@ export const LoginForm = () => {
           name="email"
           placeholder="email"
           {...register("email", {
-            required: true
+            required: true,
+            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
           })}
         />
         <p>Nunca compartiremos tu correo con terceros</p>
@@ -43,15 +40,13 @@ export const LoginForm = () => {
       <div className="pass-input">
         <label>Contraseña: </label>
         <input
-          onInvalid={() => {
-            alert("Contraseña no válida");
-          }}
           type="password"
           name="password"
           placeholder="contraseña"
-          pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/i"
           {...register("password", {
-            required: true
+            required: true,
+            pattern:
+              /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
           })}
         />
         <button className="btn">Login</button>
