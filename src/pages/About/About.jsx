@@ -3,7 +3,7 @@ import { GrLinkedin, GrGithub } from "react-icons/gr";
 
 export const About = () => {
   return (
-    <div className="aboutContainer">
+    <div className="container-about">
       <h1>Sobre App calculo ABN</h1>
       <p>
         Esta app fue creada como proyecto final en React para Upgrade Hub,
