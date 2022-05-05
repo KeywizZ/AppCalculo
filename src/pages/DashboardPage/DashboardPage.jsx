@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import { ActivityList } from "../../components/ActivityList/ActivityList";
 
 export const DashboardPage = () => {
-
   const user = JSON.parse(sessionStorage.getItem("user"));
   console.log(user.role);
   return (
@@ -14,6 +13,11 @@ export const DashboardPage = () => {
           <button className="login">Registrar un nuevo usuario</button>
         </NavLink>
       )}
+
+      <NavLink to="/profile">
+        <button className="profile-btn">Mi Perfil</button>
+      </NavLink>
+
       {(user.role === "STUDENT" || "TEACHER" || "ADMIN") && <ActivityList />}
     </div>
   );

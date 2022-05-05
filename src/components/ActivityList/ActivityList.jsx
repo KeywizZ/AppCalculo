@@ -20,7 +20,11 @@ export const ActivityList = () => {
       <h2>Lista de actividades</h2>
       {activities &&
         types.map((type) => {
-          return <div key={JSON.stringify(type)} ><ActivityByType type={type} /></div>;
+          return (
+            <div key={JSON.stringify(type)}>
+              <ActivityByType type={type} />
+            </div>
+          );
         })}
     </div>
   );

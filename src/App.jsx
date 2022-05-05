@@ -16,6 +16,7 @@ import { ActivityList } from "./components/ActivityList/ActivityList";
 import { About } from "./pages/About/About";
 import { Help } from "./pages/Help/Help";
 import { RegisterPage } from "./pages/RegisterPage/RegisterPage";
+import { PorfilePage } from "./pages/ProfilePage/PorfilePage";
 
 function App() {
   const [jwt, setJwt] = useState(sessionStorage.getItem("token"));
@@ -42,6 +43,7 @@ function App() {
               <Route path="/help" element={<Help />} />
               <Route path="/about" element={<About />} />
               <Route path="/register" element={<RegisterPage />} />
+              <Route path="/profile" element={<PorfilePage />} />
             </Route>
           </Routes>
         </Router>
