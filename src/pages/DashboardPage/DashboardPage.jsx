@@ -4,7 +4,8 @@ import { NavLink } from "react-router-dom";
 import { ActivityList } from "../../components/ActivityList/ActivityList";
 
 export const DashboardPage = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
+
+  const user = JSON.parse(sessionStorage.getItem("user"));
   console.log(user.role);
   return (
     <div className="dashboard">

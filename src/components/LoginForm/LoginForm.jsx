@@ -11,9 +11,9 @@ export const LoginForm = () => {
 
   const onSubmit = (formData) => {
     API.post("users/login", formData).then((res) => {
-      localStorage.setItem("token", res.data.token);
+      sessionStorage.setItem("token", res.data.token);
       setJwt(res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
+      sessionStorage.setItem("user", JSON.stringify(res.data.user));
       navigate("/dashboard");
     });
     /*  console.log(formData); */
