@@ -2,24 +2,19 @@
     padding: 15px 0;
 }
 
-
 .register-page {
     display: flex;
     padding: 5px;
     justify-content: center;
 
-
     .container-form {
         padding: 1rem;
-        border: solid #f7f7f9;
-        border-width: 0.2rem 0 0;
-        background-color: $azulFondo;
+        border: 1px solid grey;
+        background-color: $naranjaFondo;
         width: 500px;
         border-radius: .5em;
 
-
-
-        .user-input {
+        .form-input {
             text-align: left;
             display: flex;
             flex-direction: column;
@@ -58,46 +53,13 @@
             }
 
             input:focus {
-                background: $buttonColor;
+                background: $naranjaFondo2;
             }
 
         }
 
     }
-
-    .pass-input {
-        text-align: left;
-
-
-        label {
-            display: inline-block;
-            margin: 0.5rem 0;
-            padding-top: 1rem;
-            color: white;
-            text-shadow: #CF844A 1px 1px;
-        }
-
-        input {
-            display: block;
-            width: 100%;
-            padding: 0.75rem 0;
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #495057;
-            background-color: #fff;
-            background-clip: padding-box;
-            border: 1px solid #ced4da;
-            border-radius: 0.25rem;
-            transition: border-color .15s ease-in-out,
-                box-shadow .15s ease-in-out;
-            text-align: left;
-        }
-
-        input:focus {
-            background: $buttonColor;
-        }
-
-    }
+  
 
     .btn {
         display: inline-block;
@@ -119,9 +81,10 @@
             border-color .15s ease-in-out,
             box-shadow .15s ease-in-out;
         margin: 10px 0;
+        width: 100%;
     }
 
-    .form-role {
+    .form-drop {
         text-align: left;
 
         label {
@@ -134,7 +97,7 @@
 
         select {
             display: block;
-            width: 100px;
+            width: 100%;
             padding: 0.75rem 0;
         }
 
@@ -150,7 +113,7 @@
     @include tablet {
         .container-form {
             padding: 25px;
-            //background-color: red;
+           
 
         }
     }
