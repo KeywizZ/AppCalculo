@@ -32,6 +32,7 @@ export const LoginForm = () => {
             pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
           })}
         />
+        <p>Nunca compartiremos tu correo con terceros</p>
       </div>
       <div className="pass-input">
         <label>Contraseña: </label>
@@ -45,8 +46,8 @@ export const LoginForm = () => {
               /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
           })}
         />
+        <button className="btn">Login</button>
       </div>
-      <button className="btn">Login</button>
     </form>
   );
 };
