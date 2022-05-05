@@ -18,7 +18,7 @@ import { Help } from "./pages/Help/Help";
 import { RegisterPage } from "./pages/RegisterPage/RegisterPage";
 
 function App() {
-  const [jwt, setJwt] = useState(localStorage.getItem("token"));
+  const [jwt, setJwt] = useState(sessionStorage.getItem("token"));
 
   return (
     <JwtContext.Provider value={{ jwt, setJwt }}>
