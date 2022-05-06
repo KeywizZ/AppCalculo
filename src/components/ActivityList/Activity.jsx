@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { API } from "../../shared/services/api";
 import { evaluate } from "mathjs";
 import { Link } from "react-router-dom";
+import { MdOutlineSkipPrevious, MdArrowForwardIos } from "react-icons/md";
 
 export const Activity = (params) => {
   const { _id } = useParams();
@@ -44,11 +45,10 @@ export const Activity = (params) => {
       API.patch(`users/add-activity/${user._id}`, user)
         .then((res) => {
           console.log(`INFO: Activity ${activityName} was successfully added to user ${user.name}`);
-          console.log('new user',res.data)
+          console.log("new user", res.data);
           if (res.data.user !== undefined) {
             try {
               sessionStorage.setItem("user", JSON.stringify(res.data));
-              
             } catch (error) {
               console.error(error);
             }
@@ -67,19 +67,31 @@ export const Activity = (params) => {
   return (
     <div className="activity-card">
       <Link to={"/dashboard"}>
-        <button className="return-btn">Volver a lista de actividades</button>
-      </Link>
-      <div className="activity-title">{activityName}</div>
-      {!activityCompleted && (<div className="question-frame">
-        <div className="question">{questions[index]}</div>
-        <div className="answer">
-          <input value={answer} onInput={(e) => setAnswer(e.target.value)} />
-        </div>
-        <button onClick={() => evaluateQuestion(questions[index], answer)}>Siguiente</button>
-      </div>
+        <button className="return-btn">        <MdOutlineSkipPrevious /> </button>
 
-       )}
-      {activityCompleted && <button onClick={() => resolveActivity()}>Enviar Actividad</button>}
+      </Link>
+
+      <div className="header-activity">
+        <div className="activity-title">{activityName}</div>
+      </div>
+      {!activityCompleted && (
+        <div className="question-frame">
+          <div className="question">{questions[index]} =</div>
+          <div className="answer-group">
+            <div className="answer">
+              <input value={answer} onInput={(e) => setAnswer(e.target.value)} />
+            </div>
+            <button className="next-btn" onClick={() => evaluateQuestion(questions[index], answer)}>
+              <MdArrowForwardIos />
+            </button>
+          </div>
+        </div>
+      )}
+      {activityCompleted && (
+        <button className="send-btn" onClick={() => resolveActivity()}>
+          Enviar Actividad
+        </button>
+      )}
     </div>
   );
 };

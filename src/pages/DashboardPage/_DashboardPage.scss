@@ -1,71 +1,139 @@
 .dashboard {
-    width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  gap: 10px;
+
+  .profile-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    background-color: $buttonColor;
+    color: whitesmoke;
+    font-size: 20px;
+  }
+
+  .container-activities-by-type {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    margin-bottom: 60px;
-    gap: 10px;
+  }
 
-    .profile-btn {
-        padding: 10px;
-        border: none;
-        border-radius: 7px;
-        background-color: $buttonColor;
-        color: whitesmoke;
-        font-size: 20px;
+  .container-activities {
+    display: flex;
+    max-width: 100%;
+    margin-right: 20px;
+    margin-left: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .type-title {
+      margin: 25px 0;
     }
 
-.container-activities-by-type {
-    display: flex;
-    flex-direction: column;
+    .activities-container-type {
+      display: flex;
+      border-radius: 6px;
+      flex-wrap: wrap;
+      max-width: 90%;
+      justify-content: space-between;
+      background-color: $azulFondo;
+    }
+
+    .activity-card {
+      margin: 0;
+      padding: 0;
+    }
+
+    .activity-anchor {
+      margin: 5px;
+      padding: 0 5px;
+    }
+
+    .activity-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 5px;
+      background-color: $buttonColor;
+    }
+  }
 }
 
+.activity-card {
+  padding: 65px 20px;
+  max-width: 650px;
+  background-color: $naranjaFondo;
 
+  .return-btn {
+    position: absolute;
+    left: 5%;
+    top: 60px;
+    border-radius: 50%;
+    border: none;
+    width: 50px;
+    height: 50px;
+    font-size: 23px;
+    font-weight: 700;
+    color: #333;
+  }
 
+  .header-activity {
+    margin-bottom: 2%;
 
-    .container-activities {
-        display: flex;
-        max-width: 100%;
-        margin-right: 20px;
-        margin-left: 20px;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: center;
+    .activity-title {
+      color: #333;
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+  .question-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 
-        .type-title {
-            margin: 25px 0;
-        }
-
-        .activities-container-type {
-            display: flex;
-            border-radius: 6px;
-            flex-wrap: wrap;
-            max-width: 90%;
-            justify-content: space-between;
-            background-color: $azulFondo;
-        }
-
-        .activity-card {
-            margin: 0;
-            padding: 0;
-        }
-
-        .activity-anchor {
-            margin: 5px;
-            padding: 0 5px;
-
-        }
-
-        .activity-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 5px;
-            background-color: $buttonColor;
-        }
-
+    .question {
+      font-size: 65px;
+      font-weight: 700;
+      color: #333;
     }
 
+    .answer-group {
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 10px;
+      .answer {
+        input {
+          height: 65px;
+          width: 100px;
+          border: 1px solid #333;
+          font-size: 40px;
+          font-weight: 700;
+          color: #333;
+        }
+      }
 
+      .next-btn {
+        border: none;
+        background-color: #333;
+        color: white;
+        font-size: 40px;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .send-btn {
+    height: 60px;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    font-size: 40px;
+    margin-top: 25px;
+    border: none;
+  }
 }
