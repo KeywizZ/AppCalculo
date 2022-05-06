@@ -9,16 +9,21 @@
     color: #F28500;
     color: #99C4C8;
     color: #68A7AD;
+    color: #333;
     
 }
 
-$azulFondo: #72aaf5;
-$azulOscuroFondo: #412CA3;
-$buttonColor: #F28500;
+$azulFondo: #2c3e50;
+$primary: #2c3e50;
+$secondary: #3498db;
+$textSecondary: #666;
+$buttonColor: #e74c3c;
+$auxButton: $primary;
+
 $textInButton: #B9F0B9;
 $naranjaFondo: #CF844A;
 $naranjaFondo2: #ff991c;
-
+$colorTexto: #333;
 
 //screen-sizes
 $desktop: 992px;

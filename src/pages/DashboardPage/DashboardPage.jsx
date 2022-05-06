@@ -2,19 +2,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { ActivityList } from "../../components/ActivityList/ActivityList";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
 
 export const DashboardPage = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
   console.log(user.role);
   return (
     <div className="dashboard">
+      {(user.role === "ADMIN") && <h2> <MdOutlineAdminPanelSettings/> Herramientas administrador</h2>}
+
       {user.role === "ADMIN" && (
         <NavLink to="/register">
-          <button className="login">Registrar un nuevo usuario</button>
+          <button className="aux-btn">Registrar un nuevo usuario</button>
         </NavLink>
       )}
       <NavLink to="/profile">
-        <button className="profile-btn">Mi Perfil</button>
+        <button className="aux-btn">Mi Perfil</button>
       </NavLink>
 
       {(user.role === "STUDENT" || "TEACHER" || "ADMIN") && <ActivityList />}
