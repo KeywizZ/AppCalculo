@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Chart } from "./Chart";
 import axios from "axios";
 import { GroupCharts } from "./GroupCharts";
+import { Link } from "react-router-dom";
+import { BiArrowBack } from "react-icons/bi";
 
 export const Profile = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -29,14 +31,23 @@ export const Profile = () => {
   return (
     <div className="user-profile">
       <div className="profile-info">
+      <Link to={"/dashboard"}>
+        <button className="return-btn">
+          <BiArrowBack />
+        </button>
+      </Link>
         <p className="info-user">
           Bienvenido <b>{user.name}</b>, tu cuenta es de {user.role}
         </p>
 
-        {user.type === "STUDENT" && (
+        {user.role === "STUDENT" && (
           <div className="chart-card">
             <h3>Este es tu progreso en cálculo mental</h3>
-            <Chart completed={user.completedActivities.length} remaining={activityNumber - user.completedActivities.length} total={activityNumber} />
+            <Chart
+              completed={user.completedActivities.length}
+              remaining={activityNumber - user.completedActivities.length}
+              total={activityNumber}
+            />
           </div>
         )}
         {(user.type === "ADMIN" || "TEACHER") && (

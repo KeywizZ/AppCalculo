@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { API } from "../../shared/services/api";
 import { evaluate } from "mathjs";
 import { Link } from "react-router-dom";
-import { MdOutlineSkipPrevious, MdArrowForwardIos } from "react-icons/md";
+import { MdArrowForwardIos } from "react-icons/md";
+import { BiArrowBack } from "react-icons/bi";
 
 export const Activity = (params) => {
   const { _id } = useParams();
@@ -26,15 +27,20 @@ export const Activity = (params) => {
 
   useEffect(() => {
     axios(url).then((res) => {
-      setQuestions(res.data.questions.sort(() => 0.5 - Math.random()).slice(0, 10));
-      setActivityName(`${res.data.type}: actividad n.º ` + res.data.id.substring(2));
+      setQuestions(
+        res.data.questions.sort(() => 0.5 - Math.random()).slice(0, 10)
+      );
+      setActivityName(
+        `${res.data.type}: actividad n.º ` + res.data.id.substring(2)
+      );
     });
   }, []);
 
   const evaluateQuestion = (question, answer) => {
     setIndex(index + 1);
     console.log(evaluate(question));
-    if (evaluate(question) === parseInt(answer)) setCorrectQuestions(correctQuestions + 1);
+    if (evaluate(question) === parseInt(answer))
+      setCorrectQuestions(correctQuestions + 1);
     if (index === 9) setActivityCompleted(true);
     setAnswer("");
   };
@@ -44,7 +50,9 @@ export const Activity = (params) => {
       user.completedActivities.push(_id);
       API.patch(`users/add-activity/${user._id}`, user)
         .then((res) => {
-          console.log(`INFO: Activity ${activityName} was successfully added to user ${user.name}`);
+          console.log(
+            `INFO: Activity ${activityName} was successfully added to user ${user.name}`
+          );
           console.log("new user", res.data);
           if (res.data.user !== undefined) {
             try {
@@ -55,9 +63,13 @@ export const Activity = (params) => {
           }
         })
         .catch((error) => console.log(error));
-      setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, has aprobado.`);
+      setFinalMessage(
+        `Has contestado bien ${correctQuestions} preguntas, has aprobado.`
+      );
     } else {
-      setFinalMessage(`Has contestado bien ${correctQuestions} preguntas, inténtalo otra vez.`);
+      setFinalMessage(
+        `Has contestado bien ${correctQuestions} preguntas, inténtalo otra vez.`
+      );
     }
 
     alert("RESULTADO: " + correctQuestions);
@@ -67,8 +79,9 @@ export const Activity = (params) => {
   return (
     <div className="activity-card">
       <Link to={"/dashboard"}>
-        <button className="return-btn">        <MdOutlineSkipPrevious /> </button>
-
+        <button className="return-btn">
+          <BiArrowBack />
+        </button>
       </Link>
 
       <div className="header-activity">
@@ -79,9 +92,15 @@ export const Activity = (params) => {
           <div className="question">{questions[index]} =</div>
           <div className="answer-group">
             <div className="answer">
-              <input value={answer} onInput={(e) => setAnswer(e.target.value)} />
+              <input
+                value={answer}
+                onInput={(e) => setAnswer(e.target.value)}
+              />
             </div>
-            <button className="next-btn" onClick={() => evaluateQuestion(questions[index], answer)}>
+            <button
+              className="next-btn"
+              onClick={() => evaluateQuestion(questions[index], answer)}
+            >
               <MdArrowForwardIos />
             </button>
           </div>
