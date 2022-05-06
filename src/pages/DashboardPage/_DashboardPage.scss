@@ -25,6 +25,9 @@
       color: whitesmoke;
       font-size: 20px;
       width: 100%;
+      @include desktop {
+          cursor: pointer;
+      }
     }
   }
 
