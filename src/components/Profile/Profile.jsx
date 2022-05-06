@@ -8,8 +8,9 @@ export const Profile = () => {
   const [activityNumber, setActivityNumber] = useState(0);
   const [users, setUsers] = useState([]);
 
-  const url = "https://polar-castle-88468.herokuapp.com/api/activities";
-  const url2 = "https://polar-castle-88468.herokuapp.com/api/users";
+  const API_REST = process.env.REACT_APP_BACK_URL;
+  const url = `${API_REST}/activities`;
+  const url2 = `${API_REST}/users`;
 
   useEffect(() => {
     axios(url).then((res) => {

@@ -21,8 +21,10 @@ export const Activity = (params) => {
 
   console.log("INFO: loading questions from activity id: ", _id);
 
+  const API_REST = process.env.REACT_APP_BACK_URL;
+
   //TODO: VER SI HAY MEJOR FORMA DE PONER ESTO
-  let url = `https://polar-castle-88468.herokuapp.com/api/activities/${_id}`;
+  const url = `${API_REST}/activities/${_id}`;
 
   useEffect(() => {
     axios(url).then((res) => {

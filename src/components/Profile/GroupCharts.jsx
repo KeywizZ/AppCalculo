@@ -3,9 +3,12 @@ import axios from 'axios';
 import { Chart } from "./Chart";
 
 export const GroupCharts = (props) => {
-    const [users, setUsers] = useState([]);
+
+  const API_REST = process.env.REACT_APP_BACK_URL;
+  const url = `${API_REST}/users`;
+
+  const [users, setUsers] = useState([]);
     const [show, setShow] = useState(false);
-    let url = "https://polar-castle-88468.herokuapp.com/api/users";
     useEffect(() => {
       axios(url).then((res) => {
         console.log("INFO: (GroupCharts) Getting data from API");

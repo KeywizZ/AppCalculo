@@ -3,8 +3,11 @@ import axios from "axios";
 import { ActivityByType } from "./ActivityByType";
 
 export const ActivityList = () => {
+
+  const API_REST = process.env.REACT_APP_BACK_URL;
+  const url = `${API_REST}/activities`;
+  
   const [activities, setActivities] = useState([]);
-  let url = "https://polar-castle-88468.herokuapp.com/api/activities";
 
   useEffect(() => {
     axios(url).then((res) => {

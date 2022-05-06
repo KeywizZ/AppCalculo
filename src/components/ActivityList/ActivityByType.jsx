@@ -5,9 +5,13 @@ import { AiOutlineArrowDown } from "react-icons/ai";
 import { BsArrowReturnLeft } from "react-icons/bs";
 
 export const ActivityByType = (props) => {
+
+  const API_REST = process.env.REACT_APP_BACK_URL;
+  const url = `${API_REST}/activities`;
+
   const [activities, setActivities] = useState([]);
   const [show, setShow] = useState(false);
-  let url = "https://polar-castle-88468.herokuapp.com/api/activities";
+  
   useEffect(() => {
     axios(url).then((res) => {
       console.log("INFO: (ActivityByType) Getting data from API");
