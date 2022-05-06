@@ -4,35 +4,38 @@ import { GrLinkedin, GrGithub } from "react-icons/gr";
 export const About = () => {
   return (
     <div className="container-about">
-      <h1>Sobre App calculo ABN</h1>
-      <p>
-        Esta app fue creada como proyecto final en React para Upgrade Hub,
-        además de utilizar Node.js para el backend y librerías de JavaScript
-        como MathJS, GraphJS o EmailJS.
-      </p>
-      <h1>Sobre el método ABN</h1>
-      <p>
-        El autor del Método ABN es Jaime Martínez Montero, maestro y doctor en
-        Filosofía y Ciencias de la Educación, que explica: “La idea de crearlo
-        es más el resultado de toda una vida profesional en la que se ha
-        trabajado con especial intensidad la didáctica de las matemáticas, que
-        algo que se le ocurre a uno de repente”. En este sentido, Martínez
-        Montero ha escrito varios libros relacionados con el tema, que son una
-        interesante fuente de consulta para los docentes como{" "}
-        <a href="https://www.casadellibro.com/libro-una-didactica-del-calculo-para-el-siglo-xxi/9788471976369/731202">
-          Una nueva didáctica del cálculo para el siglo XXI
-        </a>{" "}
-        y{" "}
-        <a href="https://www.casadellibro.com/libro-competencias-basicas-en-matematicas-una-nueva-practica/9788471979063/1239445">
-          Competencias básicas en matemáticas. Una nueva práctica
-        </a>
-        . Su aplicación se inició por primera vez en un aula de 1º de Primaria
-        del CEIP Andalucía (Cádiz, curso 2008-2009).
-      </p>
-      <p>
-        Más información sobre éste método en su{" "}
-        <a href="https://calculoabn.com/nosotros/metodo/">página web</a>.
-      </p>
+      <div className="container-about-content">
+        <h1>Sobre App calculo ABN</h1>
+        <p>
+          Esta app fue creada como proyecto final en React para Upgrade Hub,
+          además de utilizar Node.js para el backend y librerías de JavaScript
+          como MathJS, GraphJS o EmailJS.
+        </p>
+        <h2>Sobre el método ABN</h2>
+        <p>
+          El autor del Método ABN es Jaime Martínez Montero, maestro y doctor en
+          Filosofía y Ciencias de la Educación, que explica: “La idea de crearlo
+          es más el resultado de toda una vida profesional en la que se ha
+          trabajado con especial intensidad la didáctica de las matemáticas, que
+          algo que se le ocurre a uno de repente”. En este sentido, Martínez
+          Montero ha escrito varios libros relacionados con el tema, que son una
+          interesante fuente de consulta para los docentes como<a href="https://www.casadellibro.com/libro-una-didactica-del-calculo-para-el-siglo-xxi/9788471976369/731202">
+            {" "}
+            Una nueva didáctica del cálculo para el siglo XXI
+          </a>{" "}
+          y
+          <a href="https://www.casadellibro.com/libro-competencias-basicas-en-matematicas-una-nueva-practica/9788471979063/1239445">
+            {" "}
+            Competencias básicas en matemáticas. Una nueva práctica{" "}
+          </a>
+          . Su aplicación se inició por primera vez en un aula de 1º de Primaria
+          del CEIP Andalucía (Cádiz, curso 2008-2009).
+        </p>
+        <p>
+          Más información sobre éste método en su{" "}
+          <a href="https://calculoabn.com/nosotros/metodo/">página web.</a>
+        </p>
+      </div>
       <div className="profileContainer">
         <div className="profileCard">
           <h1>Pedro González</h1>

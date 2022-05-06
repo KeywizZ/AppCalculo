@@ -1,0 +1,36 @@
+.container-about {
+    width: 100%;
+
+    .container-about-content {
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        h2 {
+            margin: 20px 0;
+        }
+
+        p {
+            padding: 10px;
+            line-height: normal;
+            text-align: justify;
+        }
+
+        a {
+            
+            text-decoration: none;
+            text-transform: lowercase;
+            color: inherit;
+            cursor: pointer;
+            padding: 0;
+            text-align: justify;
+            
+        }
+
+    }
+
+}
+
