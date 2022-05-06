@@ -24,7 +24,7 @@ export const ActivityByType = (props) => {
   return (
     <div
       className={`container-activities-by-type ${
-        showContainer ? " showContainer" : " hideContainer"
+        showContainer ? " showContainer " : " hideContainer"
       }`}
     >
       <button
@@ -36,7 +36,7 @@ export const ActivityByType = (props) => {
 
       {show && (
         <div
-          className="activities-card-container"
+          className="activities-card-container animate__animated animate__fadeIn"
           id={props.type}
         >
           {activities

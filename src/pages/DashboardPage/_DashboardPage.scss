@@ -28,7 +28,7 @@
     }
   }
 
-  .container-activities {
+  .dashboard-main-list-container {
     width: 100%;
 
     @include desktop {
@@ -36,83 +36,95 @@
       flex-direction: row;
       justify-content: space-around;
       flex-wrap: wrap;
-      :first-child {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+
+      .container-activities {
         width: 100%;
-      }
-      div {
-        width: 20%;
+        display: flex;
+        justify-content: space-around;
+        .individual-box {
+          width: 20%;
+          max-width: 22%;
+        }
         .container-activities-by-type {
+          display: flex;
+          flex-direction: column;
+          margin: 10px auto;
+          width: 100%;
+
+          .toggle-type-button {
+            padding: 10px;
+            border: none;
+            border-radius: 2px;
+            background-color: $buttonColor;
+            color: white;
+            font-size: 20px;
+            width: 100%;
+            cursor: pointer;
+          }
+
+          .activities-card-container {
             display: flex;
-            flex-direction: column;
-            margin: 10px auto;
-            width: 90%;
-            
-            .toggle-type-button {
-                padding: 10px;
-                border: none;
-                border-radius: 2px;
-                background-color: $buttonColor;
-                color: white;
-                font-size: 20px;
-                width: 100%;
-                
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            padding: 25px 0;
+            width: 100%;
+            background-color: white;
+            .activity-card {
+              width: 40%;
+              .activity-anchor {
+                button {
+                  cursor: pointer;
+                }
+              }
             }
-           
-            .activities-card-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-                padding: 25px 0;
-                
-               
-            }
+          }
         }
       }
     }
 
-
-
     .container-activities-by-type.showContainer {
-        border: 3px solid $buttonColor;
-        border-radius: 4px;
+      border: 3px solid $buttonColor;
+      border-radius: 4px;
     }
+  }
+  .container-activities-by-type {
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    width: 90%;
 
-    
-
-    
+    button {
+      padding: 10px;
+      border: none;
+      border-radius: 2px;
+      background-color: $buttonColor;
+      color: whitesmoke;
+      font-size: 20px;
+      width: 100%;
+    }
+  }
 }
-    .container-activities-by-type {
-      display: flex;
-      flex-direction: column;
-      margin: 10px auto;
-      width: 90%;
 
-      button {
-        padding: 10px;
-        border: none;
-        border-radius: 2px;
-        background-color: $buttonColor;
-        color: whitesmoke;
-        font-size: 20px;
-        width: 100%;
-      }
-    }
+.container-activities-by-type.showContainer {
+  background-color: grey;
+  border-radius: 10px;
+  @include desktop {
+    background-color: white;
   }
+}
 
-  .container-activities-by-type.showContainer {
-    background-color: grey;
-    border-radius: 10px;
-  }
+.activity-anchor {
+  margin: 5px;
+  padding: 0 5px;
+}
 
-  .activity-anchor {
-    margin: 5px;
-    padding: 0 5px;
-  }
-
-  .activity-btn {
-    width: 60px;
-    height: 60px;
-    border-radius: 5px;
-    background-color: $buttonColor;
-  }
-
+.activity-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: $buttonColor;
+}
