@@ -113,11 +113,8 @@
 }
 
 .container-activities-by-type.showContainer {
-  background-color: grey;
+  background-color: white;
   border-radius: 10px;
-  @include desktop {
-    background-color: white;
-  }
 }
 
 .activity-anchor {

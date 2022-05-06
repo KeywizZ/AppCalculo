@@ -32,7 +32,7 @@ export const Help = () => {
         <p>
           Mándanos un email con tu nombre, centro y profesor a
           ApiCalculo@gmail.com
-          <a href="/about">contacta con nosotros</a>.
+          <a href="/about">contacta con nosotros</a>
         </p>
       </div>
     </div>

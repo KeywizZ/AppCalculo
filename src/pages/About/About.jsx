@@ -19,21 +19,19 @@ export const About = () => {
           trabajado con especial intensidad la didáctica de las matemáticas, que
           algo que se le ocurre a uno de repente”. En este sentido, Martínez
           Montero ha escrito varios libros relacionados con el tema, que son una
-          interesante fuente de consulta para los docentes como
+          interesante fuente de consulta para los docentes como:
           <a href="https://www.casadellibro.com/libro-una-didactica-del-calculo-para-el-siglo-xxi/9788471976369/731202">
-            Una nueva didáctica del cálculo para el siglo XXI
+            - Una nueva didáctica del cálculo para el siglo XXI
           </a>
-          y
           <a href="https://www.casadellibro.com/libro-competencias-basicas-en-matematicas-una-nueva-practica/9788471979063/1239445">
-            {" "}
-            Competencias básicas en matemáticas. Una nueva práctica{" "}
+            - Competencias básicas en matemáticas. Una nueva práctica{" "}
           </a>
-          . Su aplicación se inició por primera vez en un aula de 1º de Primaria
+          Su aplicación se inició por primera vez en un aula de 1º de Primaria
           del CEIP Andalucía (Cádiz, curso 2008-2009).
         </p>
         <p>
-          Más información sobre éste método en su{" "}
-          <a href="https://calculoabn.com/nosotros/metodo/">página web.</a>
+          Más información sobre este método en:
+          <a href="https://calculoabn.com/nosotros/metodo/">- página web.</a>
         </p>
       </div>
       <h2>Desarrolladores</h2>

@@ -30,15 +30,21 @@
         a {
             //margin-top: 20px;
             color: $secondary;
-            text-align: left;
-            padding: 10px;
             //border: 2px solid $secondary;
+            padding: 0;
+            margin: 0;
+            text-align: left;
             border-radius: 15px;
-            text-transform: lowercase;
+            text-transform: capitalize;
         }
-
+        
     }
-
+    @include tablet {
+        max-width: 960px;
+    }
+    @include desktop {
+        margin: 0 auto;
+    }
     .profile-container {
         .profile-card {
             padding: 15px;
@@ -72,6 +78,23 @@
             }
 
 
+        }
+        @include tablet {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            .profile-card {
+                width: 25%;
+            }
+        }
+        @include desktop {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            .profile-card {
+                width: 29%;
+                gap: 5px;
+            }
         }
     }
 

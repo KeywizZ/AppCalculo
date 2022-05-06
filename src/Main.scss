@@ -24,7 +24,13 @@
   
 }
 
-
+@media (min-width: 992px) {
+  *{
+    a, button{
+      cursor: pointer;
+    }
+  }
+}
 
 
 /* 
