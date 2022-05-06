@@ -1,0 +1,31 @@
+.help-container {
+    margin: 0 auto;
+    text-align: left;
+    padding: 10px;
+    max-width: 960px;
+    
+    h2 {
+        text-align: left;
+        font-family: 'Oswald', sans-serif;
+        color: $textSecondary;
+    }
+
+    p{
+        text-align: left;
+        color: $colorTexto;
+        margin-bottom: 15px;
+    }
+    .help-section {
+        a {
+            margin-top: 20px;
+            color: $secondary;
+            text-align: center;
+            padding: 10px;
+            border: 2px solid $secondary;
+            border-radius: 15px;
+            cursor: pointer;
+            max-width: 500px;
+        }
+    }
+
+}
