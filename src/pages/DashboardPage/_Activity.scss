@@ -4,7 +4,11 @@
     max-width: 650px;
     background-color: $naranjaFondo;
     margin: 0 auto;
-  
+
+    @include desktop {
+        
+    }
+
     .return-btn {
       position: absolute;
       left: 5%;
@@ -73,5 +77,8 @@
       margin-top: 25px;
       border: none;
     }
+    
+
   }
+  
   
