@@ -10,8 +10,9 @@ export const LoginForm = () => {
   let navigate = useNavigate();
 
   const onSubmit = (formData) => {
-    console.log("INFO: Ha entrado en la función onSubmit");
-    API.post("users/login", formData)
+    //const object = {"email":"admintest@admin.com", "password": "Admin12345@"}
+    console.log("INFO: Ha entrado en la función onSubmit", formData);
+    API.post("/users/login", formData)
       .then((res) => {
         sessionStorage.setItem("token", res.data.token);
         setJwt(res.data.token);
@@ -22,42 +23,23 @@ export const LoginForm = () => {
         console.log(error);
         alert("No se ha podido iniciar sesion");
       });
-    /*  console.log(formData); */
   };
 
   return (
-    <form className="container-form" onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="container-form">
       <div className="user-input">
-        <label>Correo Electrónico: </label>
-        <input
-          type="email"
-          name="email"
-          placeholder="email"
-          {...register("email", {
-            required: true,
-            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-          })}
-        />
-        <p>Nunca compartiremos tu correo con terceros</p>
+        <label>Email</label>
+        <input type="email" name="email" {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i })} />
       </div>
       <div className="user-input">
-        <label>Contraseña: </label>
+        <label>Password</label>
         <input
-          onInvalid={() => {
-            alert("Contraseña no válida");
-          }}
           type="password"
           name="password"
-          placeholder="contraseña"
-          pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/"
-          {...register("password", {
-            required: true,
-            pattern:
-              /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
-          })}
+          {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/ })}
         />
-        <button className="btn">Login</button>
       </div>
+      <button className="btn">Login</button>
     </form>
   );
 };
