@@ -53,43 +53,65 @@
 
     .question {
       font-size: 65px;
-      font-weight: 700;
-      color: #333;
-    }
+      margin-top: 30px;
+      padding: 65px 20px;
+      max-width: 650px;
+      background-color: $naranjaFondo;
+      margin: 0 auto;
 
-    .answer-group {
-      display: flex;
-      justify-content: flex-start;
-      margin-left: 10px;
+      @include desktop {}
 
-      .answer {
-        input {
-          height: 65px;
-          width: 100px;
-          border: 1px solid #333;
+      .return-btn {
+        position: absolute;
+        left: 5%;
+        top: 60px;
+        border-radius: 50%;
+        border: none;
+        width: 50px;
+        height: 50px;
+        font-size: 23px;
+        font-weight: 700;
+        color: #333;
+      }
+
+      .answer-group {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 10px;
+
+        .answer {
+          input {
+            height: 65px;
+            width: 100px;
+            border: 1px solid #333;
+            font-size: 40px;
+            font-weight: 700;
+            color: #333;
+          }
+        }
+
+        .next-btn {
+          border: none;
+          background-color: #333;
+          color: white;
           font-size: 40px;
-          font-weight: 700;
-          color: #333;
+          vertical-align: middle;
         }
       }
 
-      .next-btn {
-        border: none;
-        background-color: #333;
-        color: white;
-        font-size: 40px;
-        vertical-align: middle;
-      }
+
+    }
+
+    .send-btn {
+      height: 60px;
+      width: 100%;
+      background-color: #333;
+      color: white;
+      font-size: 40px;
+      margin-top: 25px;
+      border: none;
     }
   }
 
-  .send-btn {
-    height: 60px;
-    width: 100%;
-    background-color: #333;
-    color: white;
-    font-size: 40px;
-    margin-top: 25px;
-    border: none;
-  }
+
 }

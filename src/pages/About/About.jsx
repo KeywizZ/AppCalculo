@@ -65,7 +65,7 @@ export const About = () => {
           <h1>Raúl Ruiz</h1>
           <h2>raul.dev.rm@gmail.com</h2>
           <div className="socials">
-            <a href="www.linkedin.com/in/raul-ruiz-manglano">
+            <a href="https://www.linkedin.com/in/raul-ruiz-manglano">
               <GrLinkedin />
             </a>
             <a href="https://github.com/KeywizZ">
