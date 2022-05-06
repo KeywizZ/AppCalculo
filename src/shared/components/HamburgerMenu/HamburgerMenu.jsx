@@ -22,7 +22,7 @@ export const HamburgerMenu = () => {
       </div>
       <ul
         id="nav-list"
-        className={`menuHamb ${hamburgerOpen ? " showMenu" : " hideMenu"}`}
+        className={`menuHamb ${hamburgerOpen ? " showMenu animate__animated animate__fadeInDown" : " hideMenu animate__animated animate__fadeOutUp"}`}
       >
         <li>
           <a href="/">Home</a>
