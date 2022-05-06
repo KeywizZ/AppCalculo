@@ -19,10 +19,10 @@ export const About = () => {
           trabajado con especial intensidad la didáctica de las matemáticas, que
           algo que se le ocurre a uno de repente”. En este sentido, Martínez
           Montero ha escrito varios libros relacionados con el tema, que son una
-          interesante fuente de consulta para los docentes como<a href="https://www.casadellibro.com/libro-una-didactica-del-calculo-para-el-siglo-xxi/9788471976369/731202">
-            {" "}
+          interesante fuente de consulta para los docentes como
+          <a href="https://www.casadellibro.com/libro-una-didactica-del-calculo-para-el-siglo-xxi/9788471976369/731202">
             Una nueva didáctica del cálculo para el siglo XXI
-          </a>{" "}
+          </a>
           y
           <a href="https://www.casadellibro.com/libro-competencias-basicas-en-matematicas-una-nueva-practica/9788471979063/1239445">
             {" "}
@@ -36,8 +36,9 @@ export const About = () => {
           <a href="https://calculoabn.com/nosotros/metodo/">página web.</a>
         </p>
       </div>
-      <div className="profileContainer">
-        <div className="profileCard">
+      <h2>Desarrolladores</h2>
+      <div className="profile-container">
+        <div className="profile-card">
           <h1>Pedro González</h1>
           <h2>pedrogonzalezfernandez@gmail.com</h2>
           <div className="socials">
@@ -49,8 +50,8 @@ export const About = () => {
             </a>
           </div>
         </div>
-        <div className="profileCard">
-          <h1>Xulio Xaviert Rojas</h1>
+        <div className="profile-card">
+          <h1>Xulio Xaviert Rojas Teixeira</h1>
           <h2>xulioxaviert@gmail.com</h2>
           <div className="socials">
             <a href="https://www.linkedin.com/in/xulio-xaviert-rojas-teixeira/">
@@ -61,7 +62,7 @@ export const About = () => {
             </a>
           </div>
         </div>
-        <div className="profileCard">
+        <div className="profile-card">
           <h1>Raúl Ruiz</h1>
           <h2>raul.dev.rm@gmail.com</h2>
           <div className="socials">

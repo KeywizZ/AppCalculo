@@ -2,24 +2,21 @@ import React from "react";
 
 export const Help = () => {
   return (
-    <div className="helpContainer">
-      <div className="helpSection">
-        <h2>
-          <q>No tengo acceso a la aplicación</q>
-        </h2>
+    <div className="help-container">
+      <div className="help-section">
+        <h2>No tengo acceso a la aplicación</h2>
         <p>
-          AppCálculo no es una app pública per se, está enfocada a centros y
-          profesores cuyo método de aprendizaje esté basado en el método ABN,
-          ellos nos solicitan el acceso y nosotros les damos unas credenciales
-          de acceso, tanto a profesores, alumnos y su respectivo tutor legal.
+          AppCálculo no es una app pública per se, está enfocada a centros
+          educativos y profesores cuyo método de aprendizaje esté basado en el
+          método ABN, ellos nos solicitan el acceso y nosotros les damos unas
+          credenciales de acceso, tanto a profesores, alumnos y su respectivo
+          tutor legal.
         </p>
       </div>
-      <div className="helpSection">
+      <div className="help-section">
         <h2>
-          <q>
-            Mis credenciales no me funcionan / Me da error al intentar iniciar
-            sesión
-          </q>
+          Mis credenciales no me funcionan / Me da error al intentar iniciar
+          sesión
         </h2>
         <p>
           Como suele ser habitual en estos casos, comprueba que tu contraseña y
@@ -30,15 +27,12 @@ export const Help = () => {
           acceso.
         </p>
       </div>
-      <div className="helpSection">
-        <h2>
-          {" "}
-          <q>Mi problema no está aquí listado</q>{" "}
-        </h2>
+      <div className="help-section">
+        <h2>Mi problema no está aquí listado</h2>
         <p>
           Mándanos un email con tu nombre, centro y profesor a
-          ApiCalculo@gmail.com o{" "}
-          <a href="/about">contacta diréctamente con nosotros</a>.
+          ApiCalculo@gmail.com
+          <a href="/about">contacta con nosotros</a>.
         </p>
       </div>
     </div>
