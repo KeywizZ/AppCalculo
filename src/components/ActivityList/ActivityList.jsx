@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ActivityByType } from "./ActivityByType";
+import {MdExtension} from "react-icons/md"
 
 export const ActivityList = () => {
 
@@ -20,7 +21,7 @@ export const ActivityList = () => {
 
   return (
     <div className="container-activities">
-      <h2>Lista de actividades</h2>
+      <h2><MdExtension/> Lista de actividades</h2>
       {activities &&
         types.map((type) => {
           return (

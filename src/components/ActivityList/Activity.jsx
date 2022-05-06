@@ -38,7 +38,6 @@ export const Activity = (params) => {
 
   const evaluateQuestion = (question, answer) => {
     setIndex(index + 1);
-    console.log(evaluate(question));
     if (evaluate(question) === parseInt(answer))
       setCorrectQuestions(correctQuestions + 1);
     if (index === 9) setActivityCompleted(true);
@@ -46,14 +45,13 @@ export const Activity = (params) => {
   };
 
   const resolveActivity = () => {
-    if (correctQuestions > 1) {
+    if (correctQuestions > 8) {
       user.completedActivities.push(_id);
       API.patch(`users/add-activity/${user._id}`, user)
         .then((res) => {
           console.log(
             `INFO: Activity ${activityName} was successfully added to user ${user.name}`
           );
-          console.log("new user", res.data);
           if (res.data.user !== undefined) {
             try {
               sessionStorage.setItem("user", JSON.stringify(res.data));

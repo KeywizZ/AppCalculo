@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { AiOutlineArrowDown } from "react-icons/ai";
-import { BsArrowReturnLeft } from "react-icons/bs";
+import { BsChevronUp, BsChevronDown } from "react-icons/bs";
 
 export const ActivityByType = (props) => {
 
   const API_REST = process.env.REACT_APP_BACK_URL;
   const url = `${API_REST}/activities`;
-
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  
   const [activities, setActivities] = useState([]);
   const [show, setShow] = useState(false);
   
@@ -31,13 +31,12 @@ export const ActivityByType = (props) => {
         className="toggle-type-button"
         onClick={(e) => (setShow(!show), setShowContainer(!showContainer))}
       >
-        {props.type}{" "}
-        {showContainer ? <BsArrowReturnLeft /> : <AiOutlineArrowDown />}
+        {props.type} {!showContainer ? <BsChevronDown /> : <BsChevronUp />}
       </button>
 
       {show && (
         <div
-          className="activity-by-type-container activities-container-type"
+          className="activities-card-container"
           id={props.type}
         >
           {activities
@@ -49,7 +48,9 @@ export const ActivityByType = (props) => {
                     to={`activities/${activity._id}`}
                     className="activity-anchor"
                   >
-                    <button className="activity-btn">{activity.id}</button>
+                    <button className={user.completedActivities.includes(activity._id) ? "activity-btn completed" : "activity-btn"}>
+                      {activity.id.substring(2)}
+                    </button>
                   </Link>
                 </div>
               );

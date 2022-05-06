@@ -36,35 +36,37 @@
             flex-direction: column;
             margin: 10px auto;
             width: 90%;
-
-            button {
+            
+            .toggle-type-button {
                 padding: 10px;
                 border: none;
                 border-radius: 2px;
                 background-color: $buttonColor;
-                color: whitesmoke;
+                color: white;
                 font-size: 20px;
                 width: 100%;
-
+                
             }
-
+           
+            .activities-card-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                padding: 25px 0;
+                
+               
+            }
         }
     }
 
+
+
     .container-activities-by-type.showContainer {
-        background-color: grey;
-        border-radius: 10px;
+        border: 3px solid $buttonColor;
+        border-radius: 4px;
     }
 
-    .activity-anchor {
-        margin: 5px;
-        padding: 0 5px;
-    }
+    
 
-    .activity-btn {
-        width: 60px;
-        height: 60px;
-        border-radius: 5px;
-        background-color: $buttonColor;
-    }
+    
 }
