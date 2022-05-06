@@ -10,15 +10,18 @@ export const LoginForm = () => {
   let navigate = useNavigate();
 
   const onSubmit = (formData) => {
-    API.post("users/login", formData).then((res) => {
-      sessionStorage.setItem("token", res.data.token);
-      setJwt(res.data.token);
-      sessionStorage.setItem("user", JSON.stringify(res.data.user));
-      navigate("/dashboard");
-    }).catch((error) => {
-      console.log(error);
-      alert("No se ha podido iniciar sesion");
-    });;
+    console.log("INFO: Ha entrado en la función onSubmit");
+    API.post("users/login", formData)
+      .then((res) => {
+        sessionStorage.setItem("token", res.data.token);
+        setJwt(res.data.token);
+        sessionStorage.setItem("user", JSON.stringify(res.data.user));
+        navigate("/dashboard");
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("No se ha podido iniciar sesion");
+      });
     /*  console.log(formData); */
   };
 
@@ -40,9 +43,13 @@ export const LoginForm = () => {
       <div className="user-input">
         <label>Contraseña: </label>
         <input
+          onInvalid={() => {
+            alert("Contraseña no válida");
+          }}
           type="password"
           name="password"
           placeholder="contraseña"
+          pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/"
           {...register("password", {
             required: true,
             pattern:
