@@ -33,6 +33,11 @@ export const HamburgerMenu = () => {
         <li>
           <a href="/">Home</a>
         </li>
+        {jwt && (
+          <li>
+            <a href="/dashboard">Dashboard</a>
+          </li>
+        )}
         {(jwt && user.role === "ADMIN") && (
           <li>
             <a href="/register">Registrar usuario</a>
@@ -44,11 +49,7 @@ export const HamburgerMenu = () => {
         <li>
           <a href="/help">Ayuda</a>
         </li>
-        {jwt && (
-          <li>
-            <a href="/dashboard">Dashboard</a>
-          </li>
-        )}
+        
         
 
         {jwt && (
