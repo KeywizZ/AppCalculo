@@ -28,6 +28,8 @@ export const Profile = () => {
   groups.sort();
   groups.pop();
 
+  console.log(user.role);
+
   return (
     <div className="user-profile">
       <div className="profile-info">
@@ -50,7 +52,7 @@ export const Profile = () => {
             />
           </div>
         )}
-        {(user.type === "ADMIN" || "TEACHER") && (
+        {(user.role !== "STUDENT") && (
           <div>
             <h3>Progreso de los alumnos</h3>
             {groups.map((group) => {
