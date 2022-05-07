@@ -25,8 +25,9 @@
       color: whitesmoke;
       font-size: 20px;
       width: 100%;
+
       @include desktop {
-          cursor: pointer;
+        cursor: pointer;
       }
     }
   }
@@ -47,10 +48,12 @@
         width: 100%;
         display: flex;
         justify-content: space-around;
+
         .individual-box {
           width: 20%;
           max-width: 22%;
         }
+
         .container-activities-by-type {
           display: flex;
           flex-direction: column;
@@ -76,13 +79,11 @@
             padding: 25px 0;
             width: 100%;
             background-color: white;
+
             .activity-card {
-              width: 40%;
-              .activity-anchor {
-                button {
-                  cursor: pointer;
-                }
-              }
+
+              //width: 40%;
+              .activity-anchor {}
             }
           }
         }
@@ -94,13 +95,14 @@
       border-radius: 4px;
     }
   }
+
   .container-activities-by-type {
     display: flex;
     flex-direction: column;
     margin: 10px auto;
     width: 90%;
 
-    button {
+    .toggle-type-button {
       padding: 10px;
       border: none;
       border-radius: 2px;
@@ -109,6 +111,36 @@
       font-size: 20px;
       width: 100%;
     }
+
+    .activities-card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px 0;
+
+      .activity-card {
+        .activity-anchor {
+          .activity-btn {
+            width: 60px;
+            height: 60px;
+            background-color: $buttonColor;
+            border-radius: 50%;
+            border: none;
+            color: white;
+            font-size: 28px;
+            text-align: center;
+            font-weight: 700;
+            font-family: 'Lobster', sans-serif;
+
+          }
+
+          .completed {
+            background-color: green;
+          }
+        }
+      }
+    }
+
   }
 }
 
@@ -120,11 +152,4 @@
 .activity-anchor {
   margin: 5px;
   padding: 0 5px;
-}
-
-.activity-btn {
-  width: 60px;
-  height: 60px;
-  border-radius: 5px;
-  background-color: $buttonColor;
 }
