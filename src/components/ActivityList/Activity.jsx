@@ -4,9 +4,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { API } from "../../shared/services/api";
 import { evaluate } from "mathjs";
-import { Link } from "react-router-dom";
 import { MdArrowForwardIos } from "react-icons/md";
 import { BiArrowBack } from "react-icons/bi";
+import { confirmAlert } from "react-confirm-alert";
+//import "react-confirm-alert/src/react-confirm-alert.css";
 
 export const Activity = (params) => {
   const { _id } = useParams();
@@ -73,14 +74,33 @@ export const Activity = (params) => {
     alert("RESULTADO: " + correctQuestions);
     navigate("/dashboard");
   };
+  
+
+  const exit = () => {
+    confirmAlert({
+      title: "Seguro que deseas salir",
+      message: "Se perderan las preguntas que hayas contestado",
+      buttons: [
+        {
+          label: "Sí",
+          onClick: () => navigate("/dashboard"),
+        },
+        {
+          label: "No",
+          
+        },
+      ],
+    });
+  };
+  
 
   return (
     <div className="activity-card">
-      <Link to={"/dashboard"}>
-        <button className="return-btn">
+      <span>
+        <button className="return-btn" onClick={()=> exit()} >
           <BiArrowBack />
         </button>
-      </Link>
+      </span>
 
       <div className="header-activity">
         <div className="activity-title">{activityName}</div>

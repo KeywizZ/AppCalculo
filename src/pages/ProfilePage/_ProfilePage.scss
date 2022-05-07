@@ -11,6 +11,10 @@
       flex-direction: column;
       flex-wrap: wrap;
 
+      p {
+        color: $textSecondary;
+      }
+
       a {
         display: flex;
         padding: 10px;
@@ -41,8 +45,8 @@
 
       .all-charts-container {
 
-        h3 {
-          color: $colorTexto;
+        h2 {
+          color: $textSecondary;
         }
 
         .toggle-button-container {

@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Radio+Canada&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 @import "./pages/HomePage/HomePage";
@@ -16,23 +15,39 @@
 @import "./pages/DashboardPage/Activity";
 @import "./pages/Help/Help";
 @import "animate.css";
+@import "./ConfirmAlert";
 
 
 * {
   font-family: "Radio Canada", sans-serif;
   text-align: center;
   margin: 0px;
-  
+
 }
 
 @media (min-width: 992px) {
-  *{
-    a, button{
+  * {
+
+    a,
+    button {
       cursor: pointer;
     }
   }
 }
 
+
+/* .react-confirm-alert-body {
+  width: 80%;
+  max-width: 700px;
+  background-color: red;
+
+  h1 {}
+
+  .react-confirm-alert-button-group {
+    button {}
+  }
+}
+ */
 
 /* 
 #CF844A

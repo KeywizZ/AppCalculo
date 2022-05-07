@@ -43,7 +43,7 @@ export const ActivityByType = (props) => {
             .filter((activity) => activity.type.includes(props.type))
             .map((activity) => {
               return (
-                <div className="activity-card" key={JSON.stringify(activity)}>
+                <div className="activity-item" key={JSON.stringify(activity)}>
                   <Link
                     to={`activities/${activity._id}`}
                     className="activity-anchor"

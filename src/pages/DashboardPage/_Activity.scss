@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 0 2px;
 
-  a {
+  span {
     display: flex;
     padding: 10px;
 
@@ -22,7 +22,7 @@
   }
 
   @include desktop {
-    a {
+    span {
       padding: 10px 60px;
     }
   }
@@ -47,14 +47,14 @@
     flex-wrap: wrap;
     padding: 50px 0;
     border-radius: 5px;
-    
-    
+
+
     .question {
       font-size: 65px;
       max-width: 650px;
       color: $primary;
       padding: 5px 0;
-      
+
     }
 
     .answer-group {

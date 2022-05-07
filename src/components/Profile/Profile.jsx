@@ -44,7 +44,7 @@ export const Profile = () => {
 
         {user.role === "STUDENT" && (
           <div className="chart-card">
-            <h3> <BiLineChart /> Este es tu progreso en cálculo mental</h3>
+            <h2> <BiLineChart /> Este es tu progreso en cálculo mental</h2>
             <Chart
               completed={user.completedActivities.length}
               remaining={activityNumber - user.completedActivities.length}
@@ -54,7 +54,7 @@ export const Profile = () => {
         )}
         {(user.role !== "STUDENT") && (
           <div className="all-charts-container">
-            <h3> <BiLineChart/> Progreso de los alumnos</h3>
+            <h2> <BiLineChart/> Progreso de los alumnos</h2>
             {groups.map((group) => {
               return (
                 <div className="toggle-button-container" key={JSON.stringify(group)}>
