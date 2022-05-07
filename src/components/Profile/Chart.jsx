@@ -11,8 +11,8 @@ export const Chart = (props) => {
       {
         label: "Actividades completadas",
         data: [props.completed, props.remaining],
-        backgroundColor: ["rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)"],
-        borderColor: ["rgba(54, 162, 235, 1)", "rgba(153, 102, 255, 1)"],
+        backgroundColor: ["rgba(46, 204, 113,1.0)", "rgba(52, 73, 94,1.0)"],
+        borderColor: ["rgba(39, 174, 96,1.0)", "rgba(44, 62, 80,1.0)"],
         borderWidth: 1,
       },
     ],

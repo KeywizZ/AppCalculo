@@ -3,7 +3,7 @@ import { Chart } from "./Chart";
 import axios from "axios";
 import { GroupCharts } from "./GroupCharts";
 import { Link } from "react-router-dom";
-import { BiArrowBack } from "react-icons/bi";
+import { BiArrowBack, BiLineChart } from "react-icons/bi";
 
 export const Profile = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -44,7 +44,7 @@ export const Profile = () => {
 
         {user.role === "STUDENT" && (
           <div className="chart-card">
-            <h3>Este es tu progreso en cálculo mental</h3>
+            <h3> <BiLineChart /> Este es tu progreso en cálculo mental</h3>
             <Chart
               completed={user.completedActivities.length}
               remaining={activityNumber - user.completedActivities.length}
@@ -53,11 +53,11 @@ export const Profile = () => {
           </div>
         )}
         {(user.role !== "STUDENT") && (
-          <div>
-            <h3>Progreso de los alumnos</h3>
+          <div className="all-charts-container">
+            <h3> <BiLineChart/> Progreso de los alumnos</h3>
             {groups.map((group) => {
               return (
-                <div key={JSON.stringify(group)}>
+                <div className="toggle-button-container" key={JSON.stringify(group)}>
                   <GroupCharts group={group} total={activityNumber} />
                 </div>
               );

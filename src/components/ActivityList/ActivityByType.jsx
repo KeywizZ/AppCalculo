@@ -19,19 +19,19 @@ export const ActivityByType = (props) => {
     });
   }, [url]);
 
-  const [showContainer, setShowContainer] = useState(false);
+  
 
   return (
     <div
       className={`container-activities-by-type ${
-        showContainer ? " showContainer " : " hideContainer"
+        show ? " showContainer " : " hideContainer"
       }`}
     >
       <button
         className="toggle-type-button"
-        onClick={(e) => (setShow(!show), setShowContainer(!showContainer))}
+        onClick={() => (setShow(!show))}
       >
-        {props.type} {!showContainer ? <BsChevronDown /> : <BsChevronUp />}
+        {props.type} {!show ? <BsChevronDown /> : <BsChevronUp />}
       </button>
 
       {show && (

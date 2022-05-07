@@ -11,6 +11,7 @@
   h2 {
     color: $textSecondary;
     font-family: "Oswald", sans-serif;
+    vertical-align: middle;
   }
 
   a {
@@ -18,6 +19,7 @@
     padding: 0;
 
     .aux-btn {
+      
       padding: 10px;
       border: none;
       border-radius: 2px;
@@ -27,6 +29,7 @@
       width: 100%;
 
       @include desktop {
+        max-width: 400px;
         cursor: pointer;
       }
     }
@@ -83,7 +86,7 @@
             .activity-card {
 
               //width: 40%;
-              .activity-anchor {}
+              
             }
           }
         }
@@ -131,6 +134,7 @@
             text-align: center;
             font-weight: 700;
             font-family: 'Lobster', sans-serif;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
           }
 

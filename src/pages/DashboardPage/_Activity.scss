@@ -1,116 +1,127 @@
 .activity-card {
-  //background-color: white;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2px;
 
-  .activity-anchor {
-    margin: 5px;
-    //padding: 0 5px;
+  a {
+    display: flex;
+    padding: 10px;
+
+    .return-btn {
+      display: flex;
+      align-items: center;
+      border: 3px solid $secondary;
+      border-radius: 50%;
+      background-color: transparent;
+      font-size: 30px;
+      width: 50px;
+      height: 50px;
+      color: $secondary;
+      text-align: center;
+    }
   }
 
-  /* .activity-btn {
-    width: 60px;
-    height: 60px;
-    
-    background-color: $primary;
-    border: none;
-    color: white;
-    font-size: 28px;
-    text-align: center;
-    font-family: 'Koulen', cursive;
-  } */
-
-  .completed {
-    background-color: green;
+  @include desktop {
+    a {
+      padding: 10px 60px;
+    }
   }
 
-  .return-btn {
-    position: absolute;
-    left: 5%;
-    top: 60px;
-    border-radius: 50%;
-    border: none;
-    width: 50px;
-    height: 50px;
-    font-size: 23px;
-    font-weight: 700;
-    color: #333;
-  }
 
   .header-activity {
     margin-bottom: 2%;
 
     .activity-title {
-      color: #333;
+      color: $textSecondary;
       font-size: 18px;
       text-align: center;
     }
+
   }
 
   .question-frame {
+    border: 3px solid $secondary;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
+    padding: 50px 0;
+    border-radius: 5px;
+    
+    
     .question {
       font-size: 65px;
-      margin-top: 30px;
-      padding: 65px 20px;
       max-width: 650px;
-      background-color: $naranjaFondo;
-      margin: 0 auto;
+      color: $primary;
+      padding: 5px 0;
+      
+    }
 
-      @include desktop {}
+    .answer-group {
+      height: 100%;
+      padding: 5px 0;
 
-      .return-btn {
-        position: absolute;
-        left: 5%;
-        top: 60px;
-        border-radius: 50%;
-        border: none;
-        width: 50px;
-        height: 50px;
-        font-size: 23px;
-        font-weight: 700;
-        color: #333;
-      }
-
-      .answer-group {
+      .answer {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         margin-left: 10px;
 
-        .answer {
-          input {
-            height: 65px;
-            width: 100px;
-            border: 1px solid #333;
-            font-size: 40px;
-            font-weight: 700;
-            color: #333;
-          }
+
+        input {
+          height: 100%;
+          width: 70%;
+          border: 1px solid $primary;
+          font-size: 40px;
+          font-weight: 700;
+          color: #333;
+          padding: 10px 0;
+
+
         }
 
         .next-btn {
+          height: 100%;
           border: none;
-          background-color: #333;
+          background-color: $primary;
           color: white;
           font-size: 40px;
           vertical-align: middle;
+          padding: 10px 0;
         }
       }
 
 
     }
 
-    .send-btn {
-      height: 60px;
-      width: 100%;
-      background-color: #333;
-      color: white;
-      font-size: 40px;
-      margin-top: 25px;
-      border: none;
+    @include desktop {
+      .question-frame {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 50px 0;
+
+
+
+      }
+
+      input {
+        max-width: 150px;
+      }
     }
+
+  }
+
+  .send-btn {
+    height: 60px;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    font-size: 40px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 3px;
   }
 
 

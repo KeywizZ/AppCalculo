@@ -94,13 +94,13 @@ export const Activity = (params) => {
                 value={answer}
                 onInput={(e) => setAnswer(e.target.value)}
               />
+              <button
+                className="next-btn"
+                onClick={() => evaluateQuestion(questions[index], answer)}
+              >
+                <MdArrowForwardIos />
+              </button>
             </div>
-            <button
-              className="next-btn"
-              onClick={() => evaluateQuestion(questions[index], answer)}
-            >
-              <MdArrowForwardIos />
-            </button>
           </div>
         </div>
       )}

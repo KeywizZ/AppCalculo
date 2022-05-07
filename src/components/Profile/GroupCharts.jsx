@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { Chart } from "./Chart";
+import { BsChevronUp, BsChevronDown } from "react-icons/bs";
 
 export const GroupCharts = (props) => {
 
@@ -19,18 +20,24 @@ export const GroupCharts = (props) => {
     return (
       <>
         <button className="toggle-button" onClick={() => setShow(!show)}>
-          {props.group}
+          {props.group} {!show ? <BsChevronDown /> : <BsChevronUp />}
         </button>
         {show && (
           <div className="group-charts" id={props.group}>
             {users
               .filter((user) => user.group.includes(props.group))
-              .filter((user) => user.role.includes('STUDENT'))
+              .filter((user) => user.role.includes("STUDENT"))
               .map((user) => {
                 return (
-                  <div className="student-chart-mini" key={JSON.stringify(user)}>
-                      <h4>{user.name}</h4>
-                      <Chart completed={user.completedActivities.length} remaining={props.total - user.completedActivities.length} />
+                  <div
+                    className="student-chart-mini"
+                    key={JSON.stringify(user)}
+                  >
+                    <h4>{user.name}</h4>
+                    <Chart
+                      completed={user.completedActivities.length}
+                      remaining={props.total - user.completedActivities.length}
+                    />
                   </div>
                 );
               })}
