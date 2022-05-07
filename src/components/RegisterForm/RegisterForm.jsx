@@ -10,40 +10,57 @@ import emailjs from "@emailjs/browser";
 export const RegisterForm = () => {
   const { register, handleSubmit } = useForm();
   let navigate = useNavigate();
-  //console.log("Form", jwt);
-
   const form = useRef();
 
   const onSubmit = (formData, e) => {
     e.preventDefault();
-
-    emailjs.sendForm("service_q51kznk", "template_2wp305r", form.current, "JtsjEFNXDwJJYbZ46").then(
-      (result) => {
-        console.log(result.text);
-        alert("Usuario registrado con exito");
-      },
-      (error) => {
-        console.log(error.text);
-      }
-    );
+    emailjs
+      .sendForm(
+        "service_q51kznk",
+        "template_2wp305r",
+        form.current,
+        "JtsjEFNXDwJJYbZ46"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Usuario registrado con exito");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
     API.post("users/register", formData)
       .then((res) => {
-        console.log(res);
+        console.log(
+          "INFO: RegisterForm(onSubmit(API.post)): User added to DB "
+        );
         navigate("/dashboard");
       })
-      .catch((err) => {});
-    console.log(formData);
+      .catch((err) => {
+        console.log("ERROR: RegisterForm(onSubmit(API.post)): ", err);
+      });
   };
 
   return (
-    <form className="container-form" ref={form} onSubmit={handleSubmit(onSubmit)}>
-      <div className="form-input">
+    <form
+      className="container-form"
+      ref={form}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <div className="user-input">
         <label>Nombre de Usuario: </label>
-        <input type="text" name="user_name" {...register("name", { required: true })} />
+        <input
+          className="form-input"
+          type="text"
+          name="user_name"
+          {...register("name", { required: true })}
+        />
       </div>
-      <div className="form-input">
+      <div className="user-input">
         <label>Correo electrónico: </label>
         <input
+          className="form-input"
           type="email"
           name="user_email"
           {...register("email", {
@@ -52,24 +69,32 @@ export const RegisterForm = () => {
           })}
         />
       </div>
-      <div className="form-input">
+      <div className="user-input">
         <label>Contraseña: </label>
         <input
+          className="form-input"
           type="password"
           name="user_password"
           {...register("password", {
             required: true,
-            pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
+            pattern:
+              /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
           })}
         />
       </div>
-      <div className="form-input">
+      <div className="user-input">
         <label>Nombre Tutor/a: </label>
-        <input type="text" name="guardian_name" {...register("guardianName")} />
+        <input
+          className="form-input"
+          type="text"
+          name="guardian_name"
+          {...register("guardianName")}
+        />
       </div>
-      <div className="form-input">
+      <div className="user-input">
         <label>Correo electrónico Tutor/a: </label>
         <input
+          className="form-input"
           type="email"
           name="guardian_email"
           {...register("guardianEmail", {
@@ -77,17 +102,26 @@ export const RegisterForm = () => {
           })}
         />
       </div>
-      <div className="form-drop">
+      <div className="user-input">
         <label>Rol: </label>
-        <select {...register("role", { require: true })}>
+        <select className="form-input" {...register("role", { require: true })}>
+          <option disabled selected value>
+            selecciona una opción
+          </option>
           <option>ADMIN</option>
           <option>STUDENT</option>
           <option>TEACHER</option>
         </select>
       </div>
-      <div className="form-drop">
+      <div className="user-input">
         <label>Grupo / Aula: </label>
-        <select {...register("group", { require: true })}>
+        <select
+          className="form-input"
+          {...register("group", { require: true })}
+        >
+          <option disabled selected value>
+            selecciona una opción
+          </option>
           <option>ADMINISTRATIVO</option>
           <option>1EP</option>
           <option>2EP</option>

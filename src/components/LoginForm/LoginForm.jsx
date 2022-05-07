@@ -12,7 +12,7 @@ export const LoginForm = () => {
 
   const onSubmit = (formData) => {
     //const object = {"email":"admintest@admin.com", "password": "Admin12345@"}
-    console.log("INFO: Ha entrado en la función onSubmit", formData);
+    console.log("INFO: LoginForm(onSubmit) Login in");
     API.post("/users/login", formData)
       .then((res) => {
         sessionStorage.setItem("token", res.data.token);
@@ -21,8 +21,8 @@ export const LoginForm = () => {
         navigate("/dashboard");
       })
       .catch((error) => {
-        console.log(error);
-        alert("No se ha podido iniciar sesion");
+        console.log("ERROR: LoginForm(onSubmit)", error);
+
       });
   };
 
