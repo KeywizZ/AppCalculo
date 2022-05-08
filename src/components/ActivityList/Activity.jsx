@@ -65,7 +65,8 @@ export const Activity = (params) => {
           console.log(
             `INFO: Activity ${activityName} was successfully added to user ${user.name}`
           );
-          if (res.data.user !== undefined) {
+          console.log("user: ", res.data);
+          if (res.data !== undefined) {
             try {
               sessionStorage.setItem("user", JSON.stringify(res.data));
             } catch (error) {
