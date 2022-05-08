@@ -23,8 +23,7 @@ export const RegisterForm = () => {
 
     API.post("users/register", formData)
       .then((res) => {
-        form.current.userCreatedId = res.data._id;
-        console.log("Esto es el formData", formData);
+        console.log("INFO:(RegisterForm(onSubmit())) Response:", res.data);
         console.log(
           "INFO: RegisterForm(onSubmit(API.post)): User added to DB "
         );
@@ -57,8 +56,11 @@ export const RegisterForm = () => {
           );
         navigate("/dashboard");
       })
-      .catch((err) => {
+      // TODO: Que saque por error en consola que el usuario ya existe
+      .catch((err /* , res */) => {
+/*         console.log("ERROR: RegisterForm(onSubmit(API.post)): Response ", res.data);  */
         console.log("ERROR: RegisterForm(onSubmit(API.post)): ", err);
+      
       });
   };
 
