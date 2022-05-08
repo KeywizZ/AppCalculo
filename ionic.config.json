@@ -1,0 +1,7 @@
+{
+    "name": "appcalculoabn",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }

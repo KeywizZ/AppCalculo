@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.appcalculoabn",
+  "appName": "App Calculo ABN",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}
