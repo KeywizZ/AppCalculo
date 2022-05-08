@@ -19,7 +19,23 @@ export const LoginForm = () => {
         sessionStorage.setItem("token", res.data.token);
         setJwt(res.data.token);
         sessionStorage.setItem("user", JSON.stringify(res.data.user));
-        navigate("/dashboard");
+        if (res.data.user.role !== "STUDENT" || res.data.user.active === true) {
+          navigate("/dashboard");
+        } else {
+          confirmAlert({
+            message:
+              "Este correo no esta verificado, pide a tu Tutor que revise su correo",
+            buttons: [
+              {
+                label: "Ok",
+                onClick: () => {
+                  navigate("/");
+                  sessionStorage.clear();
+                },
+              },
+            ],
+          });
+        }
       })
       .catch((error) => {
         console.log("ERROR: LoginForm(onSubmit)", error);

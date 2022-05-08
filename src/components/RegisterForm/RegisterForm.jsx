@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { API } from "../../shared/services/api";
 import emailjs from "@emailjs/browser";
+import { confirmAlert } from "react-confirm-alert";
 
 // TODO: Generar automaticamente la contraseña y que se envie por email
 // para que el usuario la cambie automaticamente
@@ -13,28 +14,47 @@ export const RegisterForm = () => {
   const form = useRef();
 
   const onSubmit = (formData, e) => {
-    e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_q51kznk",
-        "template_2wp305r",
-        form.current,
-        "JtsjEFNXDwJJYbZ46"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          alert("Usuario registrado con exito");
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    let template;
+    if (formData.role === "STUDENT") {
+      template = "template_2wp305r";
+    } else {
+      template = "template_ej7aq6v";
+    }
+
     API.post("users/register", formData)
       .then((res) => {
+        form.current.userCreatedId = res.data._id;
+        console.log("Esto es el formData", formData);
         console.log(
           "INFO: RegisterForm(onSubmit(API.post)): User added to DB "
         );
+        e.preventDefault();
+        emailjs
+          .sendForm(
+            "service_q51kznk",
+            `${template}`,
+            form.current,
+            "JtsjEFNXDwJJYbZ46"
+          )
+          .then(
+            (result) => {
+              console.log(result.text);
+              confirmAlert({
+                message: "Usuario registrado con éxito",
+                buttons: [
+                  {
+                    label: "Ok",
+                    onClick: () => {
+                      navigate("/register");
+                    },
+                  },
+                ],
+              });
+            },
+            (error) => {
+              console.log(error.text);
+            }
+          );
         navigate("/dashboard");
       })
       .catch((err) => {
