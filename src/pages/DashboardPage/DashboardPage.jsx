@@ -7,6 +7,7 @@ import { MdOutlineAdminPanelSettings } from "react-icons/md";
 export const DashboardPage = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
   console.log(user.role);
+  console.log(user.active);
   return (
     <div className="dashboard">
       {(user.role === "ADMIN") && <h2> <MdOutlineAdminPanelSettings/> Herramientas administrador</h2>}
