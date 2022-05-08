@@ -16,7 +16,6 @@ export const Activity = (params) => {
   const [index, setIndex] = useState(0);
   const [activityCompleted, setActivityCompleted] = useState(false);
   const [correctQuestions, setCorrectQuestions] = useState(0);
-  const [finalMessage, setFinalMessage] = useState("");
   const [answer, setAnswer] = useState();
   let navigate = useNavigate();
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -75,16 +74,24 @@ export const Activity = (params) => {
           }
         })
         .catch((error) => console.log(error));
-      setFinalMessage(
-        `Has contestado bien ${correctQuestions} preguntas, has aprobado.`
-      );
+      confirmAlert({
+        message: "Has superado esta actividad, enhorabuena.",
+        buttons: [
+          {
+            label: "Ok",
+          },
+        ],
+      });
     } else {
-      setFinalMessage(
-        `Has contestado bien ${correctQuestions} preguntas, inténtalo otra vez.`
-      );
+      confirmAlert({
+        message: "No has superado la actividad, sigue practicando.",
+        buttons: [
+          {
+            label: "Ok",
+          },
+        ],
+      });
     }
-
-    alert("RESULTADO: " + correctQuestions);
     navigate("/dashboard");
   };
 

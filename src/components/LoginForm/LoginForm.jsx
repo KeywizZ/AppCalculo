@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { JwtContext } from "../../shared/context/JwtContext";
 import { API } from "../../shared/services/api";
 import { FiMail, FiLock } from "react-icons/fi";
+import { confirmAlert } from "react-confirm-alert";
 
 export const LoginForm = () => {
   const { setJwt } = useContext(JwtContext);
@@ -22,7 +23,14 @@ export const LoginForm = () => {
       })
       .catch((error) => {
         console.log("ERROR: LoginForm(onSubmit)", error);
-
+        confirmAlert({
+          message: "Error al iniciar sesión, revise sus credenciales.",
+          buttons: [
+            {
+              label: "Ok",
+            },
+          ],
+        });
       });
   };
 

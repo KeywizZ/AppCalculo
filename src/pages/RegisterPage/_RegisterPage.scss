@@ -1,3 +1,21 @@
+span {
+    display: flex;
+    padding: 10px;
+
+    .return-btn {
+        display: flex;
+        align-items: center;
+        border: 3px solid $secondary;
+        border-radius: 50%;
+        background-color: transparent;
+        font-size: 30px;
+        width: 50px;
+        height: 50px;
+        color: $secondary;
+        text-align: center;
+    }
+}
+
 .register-title {
     padding: 30px 0;
 
@@ -29,13 +47,11 @@
             align-items: flex-start;
             padding: 0 5%;
 
-
             label {
                 display: inline-block;
                 margin: 0.5rem 0;
                 padding-top: 1rem;
                 color: $textSecondary;
-
             }
 
             .form-input {
@@ -50,11 +66,9 @@
 
                 select {
                     option {
-                        
                         font-weight: 200;
                     }
                 }
-
             }
 
             .form-input:focus {
@@ -63,10 +77,9 @@
 
             p {
                 color: white;
-                text-shadow: #CF844A 1px 1px;
+                text-shadow: #cf844a 1px 1px;
                 font-size: smaller;
             }
-
         }
 
         .btn {
@@ -85,15 +98,11 @@
             width: 50%;
             height: 50px;
         }
-
     }
 
     .btn:hover {
         background-color: $buttonColor;
         color: white;
         cursor: pointer;
-
     }
-
-
 }
