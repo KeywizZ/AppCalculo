@@ -38,11 +38,24 @@ export const Activity = (params) => {
   }, []);
 
   const evaluateQuestion = (question, answer) => {
-    setIndex(index + 1);
-    if (evaluate(question) === parseInt(answer))
+    if (answer !== "" || answer === undefined) {
+      setIndex(index + 1);
+      const formattedQuestion = question.replace("x", "*");
+      if (evaluate(formattedQuestion) === parseInt(answer));
       setCorrectQuestions(correctQuestions + 1);
-    if (index === 9) setActivityCompleted(true);
-    setAnswer("");
+      if (index === 9) setActivityCompleted(true);
+      setAnswer("");
+      console.log("INFO: (Activity(evaluateQuestion)) - question evaluated.");
+    } else {
+      confirmAlert({
+        message: "La respuesta debe ser un número",
+        buttons: [
+          {
+            label: "Ok",
+          },
+        ],
+      });
+    }
   };
 
   const resolveActivity = () => {
@@ -74,7 +87,6 @@ export const Activity = (params) => {
     alert("RESULTADO: " + correctQuestions);
     navigate("/dashboard");
   };
-  
 
   const exit = () => {
     confirmAlert({
@@ -87,17 +99,15 @@ export const Activity = (params) => {
         },
         {
           label: "No",
-          
         },
       ],
     });
   };
-  
 
   return (
     <div className="activity-card">
       <span>
-        <button className="return-btn" onClick={()=> exit()} >
+        <button className="return-btn" onClick={() => exit()}>
           <BiArrowBack />
         </button>
       </span>
@@ -111,6 +121,10 @@ export const Activity = (params) => {
           <div className="answer-group">
             <div className="answer">
               <input
+                required
+                type="number"
+                min="0"
+                max="99999"
                 value={answer}
                 onInput={(e) => setAnswer(e.target.value)}
               />
