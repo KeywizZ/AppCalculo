@@ -39,10 +39,23 @@ export const Activity = (params) => {
   const evaluateQuestion = (question, answer) => {
     if (answer !== "" || answer === undefined) {
       setIndex(index + 1);
-      const formattedQuestion = question.replace("x", "*");
-      if (evaluate(formattedQuestion) === parseInt(answer));
-      setCorrectQuestions(correctQuestions + 1);
-      if (index === 9) setActivityCompleted(true);
+      let formatQuestion = question.replace(".", "");
+      let formattedQuestion = formatQuestion.replace("x", "*");
+      if (evaluate(formattedQuestion) === parseInt(answer)) {
+        setCorrectQuestions(correctQuestions + 1);
+        console.log("Correct questions", correctQuestions + 1);
+
+      } else {
+        console.log("Respuesta incorrecta!");
+      };
+      console.log("Formated question: ", formattedQuestion);
+      console.log("Formated question result:", evaluate(formattedQuestion));
+      console.log("Answer", answer);
+      console.log("index", index);
+      if (index === 9) {
+        setActivityCompleted(true);
+        console.log("Activity finished");
+      };
       setAnswer("");
       console.log("INFO: (Activity(evaluateQuestion)) - question evaluated.");
     } else {
@@ -98,7 +111,7 @@ export const Activity = (params) => {
 
   const exit = () => {
     confirmAlert({
-      title: "Seguro que deseas salir",
+      title: "¿Seguro que deseas salir?",
       message: "Se perderan las preguntas que hayas contestado",
       buttons: [
         {
@@ -130,15 +143,23 @@ export const Activity = (params) => {
             <div className="answer">
               <input
                 required
+                autoFocus
                 type="number"
                 min="0"
                 max="99999"
                 value={answer}
                 onInput={(e) => setAnswer(e.target.value)}
+                onKeyUp={(e) => {
+                  if (e.key === 'Enter') {
+                    evaluateQuestion(questions[index], answer)
+                  }
+                }}
               />
               <button
+                id="enter"
                 className="next-btn"
                 onClick={() => evaluateQuestion(questions[index], answer)}
+
               >
                 <MdArrowForwardIos />
               </button>
